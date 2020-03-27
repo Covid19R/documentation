@@ -5,6 +5,7 @@
 	* Package docs
 	* Vignettes
 	* Data refresh
+        * Unit tests
 * Project contribution
 	* Pull request guidance 
 * Packages usage
