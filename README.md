@@ -5,6 +5,7 @@
 		* Option 1 - long
 		
 	|date   | state | country | type | cases|
+	
         |————-|———————————-|———————————-|————|—————|
         | 2020-03-01| CA| US| positive| 100|
  	| 2020-03-01| NY| US| positive| 150|
