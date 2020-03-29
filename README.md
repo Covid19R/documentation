@@ -1,8 +1,7 @@
 # Project  Documentation
 
 * Package structure
-	* Data structure
-		* Option 1 - long
+		- Option 1 - long
 		
 |date   | state | country | type | cases|
 |-------|-------|---------|------|------|
@@ -13,7 +12,7 @@
 | 2020-03-01| CA| US| recovered| 10|
 | 2020-03-01| NY| US| recovered| 10|
 		
-		* Option 2 - wide
+		- Option 2 - wide
 		
 |date | state | country| positive | tested | recovered|
 |-----|-------|--------|----------|--------|----------|
