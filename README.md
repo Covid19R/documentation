@@ -5,7 +5,7 @@
 		* Option 1 - long
 		
 |date   | state | country | type | cases|
-|————-|———————————-|———————————-|————|—————|
+|-------|-------|---------|------|------|
 | 2020-03-01| CA| US| positive| 100|
 | 2020-03-01| NY| US| positive| 150|
 | 2020-03-01| CA| US| tested| 1000|
@@ -15,10 +15,11 @@
 		
 		* Option 2 - wide
 		
-	|date | state | country| positive | tested | recovered|
-	|———-|———————————-|———————————|——————-|—————-|————————-|
+|date | state | country| positive | tested | recovered|
+|-----|-------|--------|----------|--------|----------|
 | 2020-03-01| CA| US| 100|1000| 10|
 | 2020-03-01| NY| US| 150|1000| 10|
+
 	* Package docs
 	* Vignettes
 	* Data refresh
