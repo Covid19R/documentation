@@ -1,0 +1,14 @@
+# Introduction {#intro}
+
+The Covid19R Project started with the creation of the [coronavirus R package](http://github.com/RamiKrispin/coronavirus) by [Rami Krispin]((http://github.com/RamiKrispin/). This ppackage ulled from the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE) Coronavirus [repository](https://github.com/CSSEGISandData/COVID-19). Quickly, many members of the R community jumped in, both using it and contributing small additions and fixes - particularly as the JHU Data morphed quite a bit in the early days of the pandemic.
+
+At the same time, multiple other data aggregation efforts sprang up, from the [Corona Data Scraper](https://coronadatascraper.com/#home) project, which provided automated scraping of many many sources online to the [Covid Tracking Project](https://covidtracking.com/), supported by multiple different media organizations. These are but a few of the data sources available.
+
+As with any massive effort with multiple distributed data sources, the datset interface varies wildly from dataset to dataset. Moreover, different datasets track different things - sometimes for the same place. Researchers, however, often want to bring multiple datasets together swiftly in a standardized easy to user format. Moreover, doing it inside of an R package environment provides ease of use for data analysts, so that they do not have to spend the time searching the web, downloading, and aggregating data sets.
+
+The Covid19R project aims to create a unified interface to as many data sources as possible, providing a standardized [tidy data format](https://vita.had.co.nz/papers/tidy-data.pdf) across all sets. We aim to do this by having individuals (us or other contributors - like you!) write independent data packages for different datasets. These packages will have a handful of commonly specified functions that will read in and reshape the data into our standard format. After submitting the name of the package to us by [filing an issue on the covid19R package](https://github.com/Covid19R/covid19R/issues), we will add the package to our database, which will update all data sets daily. End-users can then access all data sets and information about them via the [covid19R package](https://github.com/Covid19R/covid19R), which has minimal dependencies (we know that processing some of those datasets in can require A LOT of data manipulation).
+
+Here in these documents, we lay out both our data standard as well as a general guide to onboarding a new data package. We hope you find it useful, and that it helps you contribute to the Covid19R Project!
+
+
+
