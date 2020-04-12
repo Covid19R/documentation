@@ -73,7 +73,11 @@
 <li class="chapter" data-level="2" data-path="packages-part-of-the-project.html"><a href="packages-part-of-the-project.html"><i class="fa fa-check"></i><b>2</b> Packages Part of the Project</a></li>
 <li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
 <li class="chapter" data-level="4" data-path="data-format-standard.html"><a href="data-format-standard.html"><i class="fa fa-check"></i><b>4</b> Data Format Standard</a></li>
-<li class="chapter" data-level="5" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabulary</a></li>
+<li class="chapter" data-level="5" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabulary</a><ul>
+<li class="chapter" data-level="5.1" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-types"><i class="fa fa-check"></i><b>5.1</b> Current Location Types</a></li>
+<li class="chapter" data-level="5.2" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-standardized-types"><i class="fa fa-check"></i><b>5.2</b> Current Location Standardized Types</a></li>
+<li class="chapter" data-level="5.3" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-data-types"><i class="fa fa-check"></i><b>5.3</b> Current Data Types</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>6</b> Standardized Package Functions</a></li>
 <li class="chapter" data-level="7" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>7</b> Data Sources</a></li>
 <li class="chapter" data-level="8" data-path="onboarding-a-new-data-package.html"><a href="onboarding-a-new-data-package.html"><i class="fa fa-check"></i><b>8</b> Onboarding a New Data Package</a></li>
@@ -104,13 +108,150 @@
             <section class="normal" id="section-">
 <div id="standardized-vocabulary" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Standardized Vocabulary</h1>
-<p>While many of the columns (e.g., location, standardized_location) are variable in their output, the types that are used to describe them are drawn from a standardized vocabulary. Here are the data standards for option 2 - long, with explanation for each.
-- <code>date</code>: YYYY-MM-DD
-- <code>location_type</code>: Continent, Country, State, Province
-- <code>location_standardized_type</code>: fips_code, iso_a3
+<p>While many of the columns (e.g., location, standardized_location) are variable in their output, the types that are used to describe them are drawn from a standardized vocabulary. Here are the data standards for option 2 - long, with explanation for each.<br />
+- <code>date</code>: YYYY-MM-DD<br />
+- <code>location_type</code>: Continent, Country, State, Province<br />
+- <code>location_standardized_type</code>: fips_code, iso_a3<br />
 - <code>data_type</code>: For temporally dynamic data types, use <code>*_new</code> and <code>*_total</code> to represent new values for the current day versus cummulative values. cases_new, cases_total, deaths, deaths_total, recovered_new, recovered_total, beds_total, beds_new…</p>
 <p>Note - pull from tables in covid19R_data</p>
+<div id="current-location-types" class="section level2">
+<h2><span class="header-section-number">5.1</span> Current Location Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+location_type
+</th>
+<th style="text-align:left;">
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+continent
+</td>
+<td style="text-align:left;">
+continental scale
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+country
+</td>
+<td style="text-align:left;">
+a country with soverign borders
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+state
+</td>
+<td style="text-align:left;">
+a spatial area inside that country such as a state, province, canton, etc.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+county
+</td>
+<td style="text-align:left;">
+a spatial area demarcated within a state
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+city
+</td>
+<td style="text-align:left;">
+a single municipality - the smallest spatial grain of government in a country
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="current-location-standardized-types" class="section level2">
+<h2><span class="header-section-number">5.2</span> Current Location Standardized Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+location_standardized_type
+</th>
+<th style="text-align:left;">
+description
+</th>
+<th style="text-align:left;">
+URL
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+fips_code
+</td>
+<td style="text-align:left;">
+federal code in US designating regions of governance
+</td>
+<td style="text-align:left;">
+<a href="https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt" class="uri">https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="current-data-types" class="section level2">
+<h2><span class="header-section-number">5.3</span> Current Data Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+data_type
+</th>
+<th style="text-align:left;">
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+cases_new
+</td>
+<td style="text-align:left;">
+new confirmed Covid-19 cases during that time interval
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cases_total
+</td>
+<td style="text-align:left;">
+cummulative confirmed Covid-19 cases up to that time interval
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+deaths_new
+</td>
+<td style="text-align:left;">
+new deaths during that time interval
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+deaths_total
+</td>
+<td style="text-align:left;">
+cummulative deaths due to Covid-19 up to that time interval
+</td>
+</tr>
+</tbody>
+</table>
 
+</div>
 </div>
             </section>
 
