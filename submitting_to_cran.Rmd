@@ -1,0 +1,13 @@
+# Submitting to CRAN
+
+# A Checklist for pre-CRAN submission
+
+File this as an issue on your package and go from there!
+
+- [ ] Update the readme
+
+- [ ] Update the package site
+
+- [ ] Update the package vignette
+
+- [ ] Update the package news
