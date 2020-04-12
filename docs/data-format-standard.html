@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 
@@ -105,15 +106,27 @@
 <div id="data-format-standard" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Data Format Standard</h1>
 <p>The minimal tidy data format that all packages need to incorporate looks like the following. This is a bare-bones minimum. Additional data columns are possible and welcomed, but, for inter-operability, the following are required.</p>
-<table>
+<div style="border: 0px;overflow-x: scroll; width:100%; ">
+<table class="table" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<table style="width:100%;">
 <colgroup>
-<col width="10%" />
-<col width="10%" />
-<col width="13%" />
-<col width="21%" />
-<col width="25%" />
 <col width="12%" />
-<col width="5%" />
+<col width="12%" />
+<col width="10%" />
+<col width="19%" />
+<col width="25%" />
+<col width="13%" />
+<col width="6%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -172,17 +185,14 @@
 <td align="left">cases_total</td>
 <td align="right">1</td>
 </tr>
-<tr class="even">
-<td align="left">2020-01-23</td>
-<td align="left">Washington</td>
-<td align="left">state</td>
-<td align="left">53</td>
-<td align="left">fips_code</td>
-<td align="left">deaths_total</td>
-<td align="right">0</td>
+</tbody>
+</table>
+|2020-01-23 |Washington |state |53 |fips_code |deaths_total | 0|
+</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>The data columns are as follows:</p>
 <ul>
 <li>date - The date in YYYY-MM-DD form</li>

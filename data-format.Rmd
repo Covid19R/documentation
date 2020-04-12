@@ -2,15 +2,25 @@
 
 The minimal tidy data format that all packages need to incorporate looks like the following. This is a bare-bones minimum. Additional data columns are possible and welcomed, but, for inter-operability, the following are required.
 
-|date       |location   |location_type |location_standardized |location_standardized_type |data_type    | value|
-|:----------|:----------|:-------------|:---------------------|:--------------------------|:------------|-----:|
+```{r data_table, echo = FALSE}
+
+tab <-
+"|date       |location   |location_type |location_standardized |location_standardized_type |data_type    | value|
+|:----------|:----------|:---------|:-----------------|:----------------------|:-----------|-----:|
 |2020-01-21 |Washington |state         |53                    |fips_code                  |cases_total  |     1|
 |2020-01-21 |Washington |state         |53                    |fips_code                  |deaths_total |     0|
 |2020-01-22 |Washington |state         |53                    |fips_code                  |cases_total  |     1|
 |2020-01-22 |Washington |state         |53                    |fips_code                  |deaths_total |     0|
-|2020-01-23 |Washington |state         |53                    |fips_code                  |cases_total  |     1|
-|2020-01-23 |Washington |state         |53                    |fips_code                  |deaths_total |     0|
+|2020-01-23 |Washington |state         |53                    |fips_code                  |cases_total  |     1|  
+|2020-01-23 |Washington |state         |53                    |fips_code                  |deaths_total |     0|  
 
+"
+
+knitr::kable(tab, format = "html") %>%
+  kableExtra::kable_styling(font_size=11) %>%
+  kableExtra::scroll_box(width = "100%", box_css = "border: 0px;")
+
+```
 
 The data columns are as follows:
 

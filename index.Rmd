@@ -11,6 +11,9 @@ link-citations: yes
 github-repo: covid19R/documentation
 description: "The Covid19R Project Documentation"
 ---
+```{r preamble, include = FALSE}
+`%>%` <- magrittr::`%>%`
+```
 
 # Welcome to the Covid19R Project Documentation!
 
