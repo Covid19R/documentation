@@ -1,5 +1,5 @@
 --- 
-title: "A Minimal Book Example"
+title: "The Covid19R Project Documentation"
 author: "Rami Krispin, Amanda Dobbyn, Jarrett Byrnes"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
