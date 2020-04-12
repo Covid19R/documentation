@@ -104,7 +104,95 @@
             <section class="normal" id="section-">
 <div id="data-format-standard" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Data Format Standard</h1>
-<p>Here is a review of existing data format.</p>
+<p>The minimal tidy data format that all packages need to incorporate looks like the following. This is a bare-bones minimum. Additional data columns are possible and welcomed, but, for inter-operability, the following are required.</p>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="13%" />
+<col width="21%" />
+<col width="25%" />
+<col width="12%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">date</th>
+<th align="left">location</th>
+<th align="left">location_type</th>
+<th align="left">location_standardized</th>
+<th align="left">location_standardized_type</th>
+<th align="left">data_type</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2020-01-21</td>
+<td align="left">Washington</td>
+<td align="left">state</td>
+<td align="left">53</td>
+<td align="left">fips_code</td>
+<td align="left">cases_total</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">2020-01-21</td>
+<td align="left">Washington</td>
+<td align="left">state</td>
+<td align="left">53</td>
+<td align="left">fips_code</td>
+<td align="left">deaths_total</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-01-22</td>
+<td align="left">Washington</td>
+<td align="left">state</td>
+<td align="left">53</td>
+<td align="left">fips_code</td>
+<td align="left">cases_total</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">2020-01-22</td>
+<td align="left">Washington</td>
+<td align="left">state</td>
+<td align="left">53</td>
+<td align="left">fips_code</td>
+<td align="left">deaths_total</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-01-23</td>
+<td align="left">Washington</td>
+<td align="left">state</td>
+<td align="left">53</td>
+<td align="left">fips_code</td>
+<td align="left">cases_total</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">2020-01-23</td>
+<td align="left">Washington</td>
+<td align="left">state</td>
+<td align="left">53</td>
+<td align="left">fips_code</td>
+<td align="left">deaths_total</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>The data columns are as follows:</p>
+<ul>
+<li>date - The date in YYYY-MM-DD form</li>
+<li>location - The name of the location as provided by the data source. The counties dataset provides county and state. They are combined and separated by a <code>,</code>, and can be split by <code>tidyr::separate()</code>, if you wish.</li>
+<li>location_type - The type of location using the covid19R controlled vocabulary. Nested locations are indicated by multiple location types being combined with a `_</li>
+<li>location_standardized - A standardized location code using a national or international standard. In this case, FIPS state or county codes. See <a href="https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code" class="uri">https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code</a> and <a href="https://en.wikipedia.org/wiki/FIPS_county_code" class="uri">https://en.wikipedia.org/wiki/FIPS_county_code</a> for more</li>
+<li>location_standardized_type The type of standardized location code being used according to the covid19R controlled vocabulary. Here we use <code>fips_code</code></li>
+<li>data_type - the type of data in that given row. Includes <code>total_cases</code> and <code>total_deaths</code>, cumulative measures of both.</li>
+<li>value - number of cases of each data type</li>
+</ul>
 
 </div>
             </section>
