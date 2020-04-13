@@ -24,7 +24,7 @@
 <meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
 
 
-<meta name="date" content="2020-04-12" />
+<meta name="date" content="2020-04-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -77,7 +77,7 @@
 <li class="chapter" data-level="5" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabulary</a><ul>
 <li class="chapter" data-level="5.1" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#adding-to-the-standardized-vocabularies"><i class="fa fa-check"></i><b>5.1</b> Adding To the Standardized Vocabularies</a></li>
 <li class="chapter" data-level="5.2" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-types"><i class="fa fa-check"></i><b>5.2</b> Current Location Types</a></li>
-<li class="chapter" data-level="5.3" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-standardized-types"><i class="fa fa-check"></i><b>5.3</b> Current Location Standardized Types</a></li>
+<li class="chapter" data-level="5.3" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-code-types"><i class="fa fa-check"></i><b>5.3</b> Current Location Code Types</a></li>
 <li class="chapter" data-level="5.4" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-data-types"><i class="fa fa-check"></i><b>5.4</b> Current Data Types</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>6</b> Standardized Package Functions</a></li>
@@ -123,23 +123,14 @@ x
 <tbody>
 <tr>
 <td style="text-align:left;">
-<table style="width:100%;">
-<colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="10%" />
-<col width="19%" />
-<col width="25%" />
-<col width="13%" />
-<col width="6%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th align="left">date</th>
 <th align="left">location</th>
 <th align="left">location_type</th>
-<th align="left">location_standardized</th>
-<th align="left">location_standardized_type</th>
+<th align="left">location_code</th>
+<th align="left">location_code_type</th>
 <th align="left">data_type</th>
 <th align="right">value</th>
 </tr>
@@ -203,8 +194,8 @@ x
 <li>date - The date in YYYY-MM-DD form</li>
 <li>location - The name of the location as provided by the data source. The counties dataset provides county and state. They are combined and separated by a <code>,</code>, and can be split by <code>tidyr::separate()</code>, if you wish.</li>
 <li>location_type - The type of location using the covid19R controlled vocabulary. Nested locations are indicated by multiple location types being combined with a `_</li>
-<li>location_standardized - A standardized location code using a national or international standard. In this case, FIPS state or county codes. See <a href="https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code" class="uri">https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code</a> and <a href="https://en.wikipedia.org/wiki/FIPS_county_code" class="uri">https://en.wikipedia.org/wiki/FIPS_county_code</a> for more</li>
-<li>location_standardized_type The type of standardized location code being used according to the covid19R controlled vocabulary. Here we use <code>fips_code</code></li>
+<li>location_code - A standardized location code using a national or international standard. In this case, FIPS state or county codes. See <a href="https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code" class="uri">https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code</a> and <a href="https://en.wikipedia.org/wiki/FIPS_county_code" class="uri">https://en.wikipedia.org/wiki/FIPS_county_code</a> for more</li>
+<li>location_code_type The type of standardized location code being used according to the covid19R controlled vocabulary. Here we use <code>fips_code</code></li>
 <li>data_type - the type of data in that given row. Includes <code>total_cases</code> and <code>total_deaths</code>, cumulative measures of both.</li>
 <li>value - number of cases of each data type</li>
 </ul>
