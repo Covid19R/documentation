@@ -11,9 +11,11 @@ While many of the columns (e.g., location, standardized_location) are variable i
 - `date`: YYYY-MM-DD  
 - `location_type`: Continent, Country, State, Province  
 - `location_standardized_type`: fips_code, iso_a3   
-- `data_type`: For temporally dynamic data types, use `*_new` and `*_total` to represent new values for the current day versus cummulative values. cases_new, cases_total, deaths, deaths_total, recovered_new, recovered_total, beds_total, beds_new...  
-  
-Note - pull from tables in covid19R_data
+- `data_type`: For temporally dynamic data types, use `*_new`,  `*_total`, or `*_current` to represent new values for the current day versus cummulative values versus current values of things that can increase or decrease. 
+
+## Adding To the Standardized Vocabularies
+
+Below, we list many of the current entries in our standardized vocabulary. If you do not see what you need here, [file an issue in the covid19R repo](https://github.com/Covid19R/covid19R/issues) using one of the premade templates, and we will work on adding it.
 
 ## Current Location Types
 
@@ -30,6 +32,7 @@ read_csv("https://github.com/Covid19R/covid19R_data/raw/master/controlled_vocabu
 ```
 
 ## Current Data Types
+
 ```{r dat_type, echo = FALSE}
 read_csv("https://github.com/Covid19R/covid19R_data/raw/master/controlled_vocabularies/data_type.csv", col_type = "cc") %>% 
   kable(format = "html") 

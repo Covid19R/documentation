@@ -12,6 +12,9 @@ github-repo: covid19R/documentation
 description: "The Covid19R Project Documentation"
 ---
 ```{r preamble, include = FALSE}
+library(readr)
+library(knitr)
+library(kableExtra)
 `%>%` <- magrittr::`%>%`
 ```
 

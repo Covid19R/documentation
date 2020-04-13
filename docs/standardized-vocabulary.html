@@ -75,9 +75,10 @@
 <li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
 <li class="chapter" data-level="4" data-path="data-format-standard.html"><a href="data-format-standard.html"><i class="fa fa-check"></i><b>4</b> Data Format Standard</a></li>
 <li class="chapter" data-level="5" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabulary</a><ul>
-<li class="chapter" data-level="5.1" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-types"><i class="fa fa-check"></i><b>5.1</b> Current Location Types</a></li>
-<li class="chapter" data-level="5.2" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-standardized-types"><i class="fa fa-check"></i><b>5.2</b> Current Location Standardized Types</a></li>
-<li class="chapter" data-level="5.3" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-data-types"><i class="fa fa-check"></i><b>5.3</b> Current Data Types</a></li>
+<li class="chapter" data-level="5.1" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#adding-to-the-standardized-vocabularies"><i class="fa fa-check"></i><b>5.1</b> Adding To the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="5.2" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-types"><i class="fa fa-check"></i><b>5.2</b> Current Location Types</a></li>
+<li class="chapter" data-level="5.3" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-standardized-types"><i class="fa fa-check"></i><b>5.3</b> Current Location Standardized Types</a></li>
+<li class="chapter" data-level="5.4" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-data-types"><i class="fa fa-check"></i><b>5.4</b> Current Data Types</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>6</b> Standardized Package Functions</a></li>
 <li class="chapter" data-level="7" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>7</b> Data Sources</a></li>
@@ -113,10 +114,13 @@
 - <code>date</code>: YYYY-MM-DD<br />
 - <code>location_type</code>: Continent, Country, State, Province<br />
 - <code>location_standardized_type</code>: fips_code, iso_a3<br />
-- <code>data_type</code>: For temporally dynamic data types, use <code>*_new</code> and <code>*_total</code> to represent new values for the current day versus cummulative values. cases_new, cases_total, deaths, deaths_total, recovered_new, recovered_total, beds_total, beds_new…</p>
-<p>Note - pull from tables in covid19R_data</p>
+- <code>data_type</code>: For temporally dynamic data types, use <code>*_new</code>, <code>*_total</code>, or <code>*_current</code> to represent new values for the current day versus cummulative values versus current values of things that can increase or decrease.</p>
+<div id="adding-to-the-standardized-vocabularies" class="section level2">
+<h2><span class="header-section-number">5.1</span> Adding To the Standardized Vocabularies</h2>
+<p>Below, we list many of the current entries in our standardized vocabulary. If you do not see what you need here, <a href="https://github.com/Covid19R/covid19R/issues">file an issue in the covid19R repo</a> using one of the premade templates, and we will work on adding it.</p>
+</div>
 <div id="current-location-types" class="section level2">
-<h2><span class="header-section-number">5.1</span> Current Location Types</h2>
+<h2><span class="header-section-number">5.2</span> Current Location Types</h2>
 <table>
 <thead>
 <tr>
@@ -169,11 +173,19 @@ city
 a single municipality - the smallest spatial grain of government in a country
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+canton
+</td>
+<td style="text-align:left;">
+the cantons of Switzerland and Principality of Liechtenstein (FL)
+</td>
+</tr>
 </tbody>
 </table>
 </div>
 <div id="current-location-standardized-types" class="section level2">
-<h2><span class="header-section-number">5.2</span> Current Location Standardized Types</h2>
+<h2><span class="header-section-number">5.3</span> Current Location Standardized Types</h2>
 <table>
 <thead>
 <tr>
@@ -194,17 +206,28 @@ URL
 fips_code
 </td>
 <td style="text-align:left;">
-federal code in US designating regions of governance
+The federal code in US designating regions of governance
 </td>
 <td style="text-align:left;">
 <a href="https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt" class="uri">https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iso_3166
+</td>
+<td style="text-align:left;">
+ISO 3166 is a standard published by the International Organization for Standardization (ISO) that defines codes for the names of countries, dependent territories, special areas of geographical interest, and their principal subdivisions (e.g., provinces or states).
+</td>
+<td style="text-align:left;">
+<a href="https://en.wikipedia.org/wiki/ISO_3166" class="uri">https://en.wikipedia.org/wiki/ISO_3166</a>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="current-data-types" class="section level2">
-<h2><span class="header-section-number">5.3</span> Current Data Types</h2>
+<h2><span class="header-section-number">5.4</span> Current Data Types</h2>
 <table>
 <thead>
 <tr>
@@ -222,7 +245,7 @@ description
 cases_new
 </td>
 <td style="text-align:left;">
-new confirmed Covid-19 cases during that time interval
+new confirmed Covid-19 cases during on the current date
 </td>
 </tr>
 <tr>
@@ -230,7 +253,23 @@ new confirmed Covid-19 cases during that time interval
 cases_total
 </td>
 <td style="text-align:left;">
-cummulative confirmed Covid-19 cases up to that time interval
+cumulative confirmed Covid-19 cases as of the current date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+recovered_total
+</td>
+<td style="text-align:left;">
+cumulative number of patients recovered as of the current date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+recovered_new
+</td>
+<td style="text-align:left;">
+new number of patients recovered on the current date
 </td>
 </tr>
 <tr>
@@ -238,7 +277,7 @@ cummulative confirmed Covid-19 cases up to that time interval
 deaths_new
 </td>
 <td style="text-align:left;">
-new deaths during that time interval
+new deaths on the current date
 </td>
 </tr>
 <tr>
@@ -246,7 +285,47 @@ new deaths during that time interval
 deaths_total
 </td>
 <td style="text-align:left;">
-cummulative deaths due to Covid-19 up to that time interval
+cumulative deaths due to Covid-19 as of the current date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tested_total
+</td>
+<td style="text-align:left;">
+cumulative number of tests performed as of the date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hosp_new
+</td>
+<td style="text-align:left;">
+new hospitalizations on the current date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hosp_current
+</td>
+<td style="text-align:left;">
+current number of hospitalized patients as of the current date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+icu_current
+</td>
+<td style="text-align:left;">
+number of hospitalized patients in ICUs as of the current date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vent_current
+</td>
+<td style="text-align:left;">
+number of hospitalized patients requiring ventilation as of the current date
 </td>
 </tr>
 </tbody>
