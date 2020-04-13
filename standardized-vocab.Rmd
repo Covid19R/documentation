@@ -26,7 +26,7 @@ read_csv("https://github.com/Covid19R/covid19R_data/raw/master/controlled_vocabu
 
 ## Current Location Code Types
 
-```{r loc_std_type, echo = FALSE}
+```{r loc_std_type, echo = FALSE, warning = FALSE}
 read_csv("https://github.com/Covid19R/covid19R_data/raw/master/controlled_vocabularies/location_code_type.csv", col_type = "ccc") %>% 
   kable(format = "html") 
 ```
