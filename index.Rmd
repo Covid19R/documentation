@@ -18,7 +18,7 @@ library(kableExtra)
 `%>%` <- magrittr::`%>%`
 ```
 
-# Welcome to the Covid19R Project Documentation!
+# Welcome to the Covid19R Project Documentation! {-}
 
 This is the documentation for the [Covid19R Project](https://github.com/Covid19R). We detail what the project is, how to be a part of it, and what minimal tidy standards we want data packages to conform to in order to bring all of our data together!
 

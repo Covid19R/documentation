@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Building a New Data Package | The Covid19R Project Documentation</title>
+  <meta name="description" content="Chapter 4 Building a New Data Package | The Covid19R Project Documentation" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Building a New Data Package | The Covid19R Project Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 4 Building a New Data Package | The Covid19R Project Documentation" />
+  <meta name="github-repo" content="covid19R/documentation" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Building a New Data Package | The Covid19R Project Documentation" />
+  
+  <meta name="twitter:description" content="Chapter 4 Building a New Data Package | The Covid19R Project Documentation" />
+  
+
+<meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
+
+
+<meta name="date" content="2020-04-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="packages-part-of-the-project.html"/>
+<link rel="next" href="guidance-for-writing-package-vignettes.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Documentation for the Covid19R Project</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the Covid19R Project Documentation!</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="the-covid19r-package.html"><a href="the-covid19r-package.html"><i class="fa fa-check"></i><b>2</b> The Covid19R Package</a></li>
+<li class="chapter" data-level="3" data-path="packages-part-of-the-project.html"><a href="packages-part-of-the-project.html"><i class="fa fa-check"></i><b>3</b> Packages Part of the Project</a></li>
+<li class="part"><span><b>I Creating a Covid19R Package</b></span></li>
+<li class="chapter" data-level="4" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html"><i class="fa fa-check"></i><b>4</b> Building a New Data Package</a><ul>
+<li class="chapter" data-level="4.1" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#before-your-start"><i class="fa fa-check"></i><b>4.1</b> Before your start:</a></li>
+<li class="chapter" data-level="4.2" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#how-should-i-divide-the-data"><i class="fa fa-check"></i><b>4.2</b> How should I divide the data?</a></li>
+<li class="chapter" data-level="4.3" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#packages-to-use-to-help-yourself-out"><i class="fa fa-check"></i><b>4.3</b> Packages to use to help yourself out</a></li>
+<li class="chapter" data-level="4.4" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#files-to-edit-on-start"><i class="fa fa-check"></i><b>4.4</b> Files to edit on start:</a></li>
+<li class="chapter" data-level="4.5" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#the-meat-of-your-task-for-the-library"><i class="fa fa-check"></i><b>4.5</b> The meat of your task for the library</a></li>
+<li class="chapter" data-level="4.6" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#if-you-would-like-a-local-dataset-to-accompany-this-package"><i class="fa fa-check"></i><b>4.6</b> If you would like a local dataset to accompany this package</a></li>
+<li class="chapter" data-level="4.7" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#documenting-your-functions-and-data"><i class="fa fa-check"></i><b>4.7</b> Documenting your functions and data</a></li>
+<li class="chapter" data-level="4.8" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#vignettes"><i class="fa fa-check"></i><b>4.8</b> Vignettes</a></li>
+<li class="chapter" data-level="4.9" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#tests"><i class="fa fa-check"></i><b>4.9</b> Tests</a></li>
+<li class="chapter" data-level="4.10" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#files-to-edit-and-things-to-do-for-release-to-the-public"><i class="fa fa-check"></i><b>4.10</b> Files to edit and things to do for release to the public</a></li>
+<li class="chapter" data-level="4.11" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#making-your-package-a-part-of-the-covid19r-project"><i class="fa fa-check"></i><b>4.11</b> Making your package a part of the Covid19R Project</a></li>
+<li class="chapter" data-level="4.12" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html#submitting-to-cran"><i class="fa fa-check"></i><b>4.12</b> Submitting to CRAN</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="guidance-for-writing-package-vignettes.html"><a href="guidance-for-writing-package-vignettes.html"><i class="fa fa-check"></i><b>5</b> Guidance for Writing Package Vignettes</a></li>
+<li class="chapter" data-level="6" data-path="unit-tests-for-data-packages.html"><a href="unit-tests-for-data-packages.html"><i class="fa fa-check"></i><b>6</b> Unit Tests for Data Packages</a></li>
+<li class="chapter" data-level="7" data-path="submitting-to-cran-1.html"><a href="submitting-to-cran-1.html"><i class="fa fa-check"></i><b>7</b> Submitting to CRAN</a></li>
+<li class="chapter" data-level="8" data-path="a-checklist-for-pre-cran-submission.html"><a href="a-checklist-for-pre-cran-submission.html"><i class="fa fa-check"></i><b>8</b> A Checklist for pre-CRAN submission</a></li>
+<li class="part"><span><b>II Covid19R Standards</b></span></li>
+<li class="chapter" data-level="9" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>9</b> Standardized Vocabulary</a><ul>
+<li class="chapter" data-level="9.1" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#adding-to-the-standardized-vocabularies"><i class="fa fa-check"></i><b>9.1</b> Adding To the Standardized Vocabularies</a></li>
+<li class="chapter" data-level="9.2" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-types"><i class="fa fa-check"></i><b>9.2</b> Current Location Types</a></li>
+<li class="chapter" data-level="9.3" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-code-types"><i class="fa fa-check"></i><b>9.3</b> Current Location Code Types</a></li>
+<li class="chapter" data-level="9.4" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-data-types"><i class="fa fa-check"></i><b>9.4</b> Current Data Types</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>10</b> Standardized Package Functions</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Covid19R Project Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="building-a-new-data-package" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Building a New Data Package</h1>
+<p>So, you want to create an R data package if covid19 data for the project? Great! You’re welcome to create your own from scratch, or, we’ve created a <a href="https://github.com/Covid19R/covid19_package_template">package template</a> for you to use - particularly useful to first-time package creators! For either case, let’s go through the steps you’ll need to follow, including some best practices, from start to letting us know it works, all the way to CRAN submission!!</p>
+<div id="before-your-start" class="section level2">
+<h2><span class="header-section-number">4.1</span> Before your start:</h2>
+<ul>
+<li><p>Choose a dataset! We’d advise just going with one for simplicity - particularly if this is your first time. If you’re interested in contributing, but don’t know where to start, we’re trying to keep track of data sources <a href="https://github.com/Covid19R/covid19R/issues/1">here</a>. Please feel free to add more sources here as well, if you know of some!</p></li>
+<li><p>Use <a href="https://github.com/Covid19R/covid19_package_template">this package template</a> to create your own github repo or start a repo with a package you’re creating from scratch. You can create it under your own user account, or, contact us if you would like to start the repo in the covid19R organization by <a href="https://github.com/Covid19R/covid19R/issues">filing an issue</a>.</p></li>
+<li><p>Regardles, file <a href="https://github.com/Covid19R/covid19R/issues">an issue to let us and others know what you are working on</a> with the pre-made Start a new package template! We want to support you, cheer you on, and provide any help you need!</p></li>
+<li><p>Keep a running documentation of <a href="https://usethis.r-lib.org/index.html">usethis</a> calls that you use to create the library in <a href="https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R">setupcode.R</a></p></li>
+<li><p>Take the steps listed here, and file an issue in your own repo, replacing each <code>-</code> with a <code>- [ ]</code> in order to create a checklist for creation and release! Also, that way, you can use the actual readme portion of this file as your README.Rmd!</p></li>
+</ul>
+</div>
+<div id="how-should-i-divide-the-data" class="section level2">
+<h2><span class="header-section-number">4.2</span> How should I divide the data?</h2>
+<p>You might be interested in making a package that brings in multiple different data sets for a given area. Or, the data source you’re accessing contains multiple different types of data, or data at different levels of spatial organization. Should you deploy these as one big long data set or multiple data sets.</p>
+<p>There can be different reasons for taking either path. In general, we advise you to think about, how will an end-user use a single data set? Assume that they have minimal information about your dataset initially (I mean, hopefully they won’t, but nuanced dataset details can be difficult to grasp at first), but want to create a clean, clear, accurate analysis or visualization. For example, the NY Times reports both state and county level data and multiple data types. In <a href="https://github.com/Covid19R/covid19nytimes">covid19nytimes</a>, we deploy one state-level datas et and one county-level data set. This minimizes confusion and possible mistakes (summing county-level data = state level data, and if both were in one data set, mistakes could be made in over-aggregating and getting 2X the number of cases). Within each data set, however, multiple data types are reported, as they can be filtered or shown together, even.</p>
+<p>Other data sets will provide some more complexity. In the <a href="https://github.com/Covid19R/coronavirus">JHU data</a>, for example, information for some countries is reported at the Province level, and for some countries, it’s at the country level. However, it’s <strong>one</strong> global dataset, and so the whole set is returned together. However, the <code>location_type</code> column clearly shows what is aggregated, what is not, and using a simple <code>tidyr::separate()</code> country and province-level data can be split for easier aggregation and display.</p>
+<p>In essence, how the raw data is structured will inform you how to split or not split the final tidy data.</p>
+</div>
+<div id="packages-to-use-to-help-yourself-out" class="section level2">
+<h2><span class="header-section-number">4.3</span> Packages to use to help yourself out</h2>
+<p>If this is your first time writing a package, there are a few packages that will help you greatly to develop your package. I’ll also presume you’re doing this within RStudio, which has a variety of tools to make your lives easier in building and deploying packages.</p>
+<ul>
+<li><p><a href="https://devtools.r-lib.org/">devtools</a>: This package is written to help you write packages. Period. We’ll reference a variety of tools that it supplies.</p></li>
+<li><p><a href="https://usethis.r-lib.org/index.html">usethis</a>: This package has a variety of tools to setup elements of your package using standard techniques.</p></li>
+<li><p><a href="https://testthat.r-lib.org/">testthat</a>: This package will allow you to write tests and/or use the tests we are providing to ensure that your package will be compliant with the standards for the covid19R project.</p></li>
+<li><p><a href="https://styler.r-lib.org/">styler</a>: use this to make your code cleaner and more readable</p></li>
+<li><p><a href="https://roxygen2.r-lib.org/">roxygen2</a>: This is the package we’ll be using for all documentation.</p></li>
+</ul>
+</div>
+<div id="files-to-edit-on-start" class="section level2">
+<h2><span class="header-section-number">4.4</span> Files to edit on start:</h2>
+<p>OK, you’re ready and raring to go. We’re going to write this as if you are using the <a href="https://github.com/Covid19R/covid19_package_template">template</a>. Adapt as needed if you are rolling your own.</p>
+<ul>
+<li><p>.Rbuildignore: Sub in your r project name. Edit as needed.</p></li>
+<li><p>DESCRIPTION: see all caps notes. For the LICENSE, see how the data is licensed. If it uses a <a href="https://www.r-project.org/Licenses/">standard license for R</a>, use [the appropriate usethis license function] to add to your description and put it in <a href="https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R">setupcode.R</a>. If not, keep the file LICENSE and edit the LICENSE file with either a link to the dataset license or the text of it.</p></li>
+</ul>
+</div>
+<div id="the-meat-of-your-task-for-the-library" class="section level2">
+<h2><span class="header-section-number">4.5</span> The meat of your task for the library</h2>
+<p>All packages in the covid19R have, at minimum, two functions. One function returns all of the information about the dataset in the package. The second function refreshes a dataset to the most current version. If there are multiple datasets per package, only one of the get_info functions is needed. However, each dataset should have its own refresh function. This is for two reasons. First, each dataset might require different code to parse it. Second, the covid19R data harvesting scripts use the names of your datasets to dynamically call the refresh functions. Along the way, there are a few other R helper files to setup in R.</p>
+<ul>
+<li><p>R/utils.R - put helper functions that you don’t want exposed to the user here. Note, we’ve seeded it with what you need to get a pipe from magrittr, as, we’re assuming you’re likely going to use this. If you’re a base-R coder, feel free to delete it from here and move on (and remove from the imports in DESCRIPTION).</p></li>
+<li><p>R/get_info_YOURPACKAGENAME - This function will return all of the salient info about each dataset that your package returns. We’ve set it up in the <a href="https://github.com/Covid19R/covid19_package_template">template</a> using <code>tibble::tribble()</code> for ease of editing and adding new datasets (and imported tibble), but you are welcome to change this if you wish to reduce dependencies. The comments in the file lay out the information you need to provide, from dataset name to package name, to where the data comes from.</p></li>
+</ul>
+<p>Three columns ask for info from our <a href="https://covid19r.github.io/documentation/standardized-vocabulary.html">controlled vocabulary</a> - data types, location types, and spatial extent of dataset. If you have multiple entries for any of these, separate entries by a comma. This will make it easier for end-users to search through information about all datasets and find yours! If you have new types you need to add to our controlled vocabulary, <a href="https://github.com/Covid19R/covid19R/issues">file an issue</a> with the appropriate template, and we’ll add it! We want to bring in all types of data!</p>
+<p>Remember, each dataset that your package provides needs one complete set of information.</p>
+<ul>
+<li><p>R/refresh_YOURPACKAGENAME - This is where you put your package dataset refresh methods. It should return a tidy dataset in the format discussed below. In general, functions for individual datasets should be named <code>refresh_YOURPACKAGENAME()</code> if you have just one dataset in this package and <code>refresh_YOURPACKAGENAME_MOREINFO()</code> if you have more than one. For example, <code>refresh_covid19france()</code> is a good for a package named covid19france package, if it only have one dataset. In the covid19nytimes package, there are two datasets, so, there is a <code>refresh_covid19nytimes_states()</code> and <code>refresh_covid19nytimes_counties()</code> function.<br />
+<br />
+Broadly, this function should scrape data from a source, and then reformat it into the Covid19R Project long format. In this format, every measurement is a single row. The minimal data specification for columns is as follows (and see also our <a href="https://covid19r.github.io/documentation/data-format-standard.html">documentation</a>). You can have columns in addition to this (e.g., lat, long, race, sex, income, etc.), but you <strong>must</strong> include these in order to be a valid data set. We will test for them!</p></li>
+<li>date - The date in YYYY-MM-DD form</li>
+<li>location - The name of the location as provided by the data source. Nested locations are combined and separated by a <code>,</code>, and can be split by <code>tidyr::separate()</code>, if you wish.</li>
+<li>location_type - The type of location using the covid19R controlled vocabulary. Nested locations are indicated by multiple location types being combined with a <code>_</code></li>
+<li>location_code - A standardized location code using a national or international standard.<br />
+</li>
+<li>location_code_type The type of standardized location code being used according to the covid19R controlled vocabulary.<br />
+</li>
+<li>data_type - the type of data in that given row.<br />
+</li>
+<li><p>value - number of cases of each data type</p></li>
+</ul>
+<p>For different types, we employ a standardized vocabulary which you must conform to. See <a href="https://covid19r.github.io/documentation/standardized-vocabulary.html">here</a> for documentation. If you have a data type, location type, or location standard that we do not have, great! We are always looking to expand! <a href="https://github.com/Covid19R/covid19R/issues">Submit an issue</a> and request that we add the new type!</p>
+<ul>
+<li>R/globals.R - As you edit your functions, you’ll have a lot of column names you’ll refer to. There are column names from our data standard. Column names for the dataset as your import and transform it. And perhaps more. In order to pass CRAN checks, these need to be declared as globals. Open up the <code>globals.R</code> file and add them. You’ll see we’ve already put in the standard columns as an example. If you have no idea what we’re talking about, do a build check, and you’ll see a number of global declaration errors. That’s what we’re talking about!</li>
+</ul>
+</div>
+<div id="if-you-would-like-a-local-dataset-to-accompany-this-package" class="section level2">
+<h2><span class="header-section-number">4.6</span> If you would like a local dataset to accompany this package</h2>
+<p>It is often helpful to have a demo dataset to work with for a new user, rather than for them to have to refresh the whole thing. Also, sometimes data source standard change, and you will want to compare the new incoming data to what it previously looked like. For that reason, in the <code>data-raw</code> directory, we have provided a file <code>DATASET.R</code> which you can edit to use for each dataset you scrape to save a frozen version that can be deployed with your package. As it will be static and not updating, we recommend labelling it <code>*_demo</code>, as we have shown in the example. This is not required, but recommended. If you are not going to do this, feel free to delete the <code>data-raw</code> directory as well as <code>R/data.R</code>.</p>
+</div>
+<div id="documenting-your-functions-and-data" class="section level2">
+<h2><span class="header-section-number">4.7</span> Documenting your functions and data</h2>
+<ul>
+<li><p>We have left roxygen2 skeletons [in the template] (<a href="https://github.com/Covid19R/covid19_package_template" class="uri">https://github.com/Covid19R/covid19_package_template</a>) for you with the main functions. Fill them out! Make sure any additional public functions you generate are filled out as well! If you have created a demo dataset, use the provided <code>R/data.R</code> file to document it.</p></li>
+<li><p>Once your documentation is in place, build it using roxygen2 (or the dropdown in the RStudio Build tab). Fix any errors, and then continue!</p></li>
+</ul>
+</div>
+<div id="vignettes" class="section level2">
+<h2><span class="header-section-number">4.8</span> Vignettes</h2>
+<ul>
+<li>We highly recommend writing a package vignette or two. We have included a line in the <a href="https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R">setup.R</a> to get you going. Your vignette should introduce the dataset(s), what is in it/them, and provide a compelling visualization. Make sure that the visualization has a date on it so that anyone looking at it can see what it is current to.</li>
+</ul>
+</div>
+<div id="tests" class="section level2">
+<h2><span class="header-section-number">4.9</span> Tests</h2>
+<p>We have provided two example tests using <code>testthat</code> which provide bare minimum checks in the directory <code>tests</code> and associated subdirectories. Edit and use these to make sure whatever incoming data from your source meets your expectations, particularly as you get this package ready to push to the public. Run the tests using the Tests option in the Build tab in RStudio.</p>
+</div>
+<div id="files-to-edit-and-things-to-do-for-release-to-the-public" class="section level2">
+<h2><span class="header-section-number">4.10</span> Files to edit and things to do for release to the public</h2>
+<ul>
+<li><p>Readme.Rmd: We have provided a skeleton of your readme within this file. Use it and fill it in as needed. Feel free to modify as you’d like.</p></li>
+<li><p>News.md: Sub in your R project name for the first release</p></li>
+<li><p>Make a <a href="https://pkgdown.r-lib.org/">pkgdown</a> site! This can be as simple as running <code>pkgdown::build_site()</code>, pushing the update, and making sure your repo settings are set to put up the website. Add the URL to your README and your github repo</p></li>
+<li><p>Take a look at <a href="https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R">setupcode.R</a> in the preparing for release section. We’ve included a number of checks for you to run to make sure the code follows best practices, is well styled, and for you to check against r-hub and other sources to make sure it works beyond just your computer! These will help you have a much better package that is more likely to go through any release process faster - particularly if you submit to CRAN!</p></li>
+</ul>
+</div>
+<div id="making-your-package-a-part-of-the-covid19r-project" class="section level2">
+<h2><span class="header-section-number">4.11</span> Making your package a part of the Covid19R Project</h2>
+<p>OK! You’re there! It works, and your build is more or less clean (at least, only notes). Close your issue about developing a new package and… <a href="https://github.com/Covid19R/covid19R/issues">file a new issue to onboard this package</a> with the onboarding template! We’ll take a look, test it out, and if it’s ready, we’ll add it in! Nice work! (and if it’s not, we’ll help you fix it)</p>
+</div>
+<div id="submitting-to-cran" class="section level2">
+<h2><span class="header-section-number">4.12</span> Submitting to CRAN</h2>
+<ul>
+<li><p>Use RStudio to build check your package until there are no errors, warnings, or notes, even! Run the suite of devtools checks provided in <a href="https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R">setupcode.R</a>. If you pass everything, use devtools to submit (it’s in the <a href="https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R">setupcode</a>), as it will ask you additional questions.</p></li>
+<li><p>Make sure your cran-comments.md file is up to date with info from your final check!</p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="packages-part-of-the-project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="guidance-for-writing-package-vignettes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/onboarding.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["covid19r-documentation.pdf", "covid19r-documentation.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
