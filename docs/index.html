@@ -50,7 +50,6 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 
@@ -75,15 +74,12 @@
 <li class="chapter" data-level="2" data-path="the-covid19r-package.html"><a href="the-covid19r-package.html"><i class="fa fa-check"></i><b>2</b> The Covid19R Package</a></li>
 <li class="chapter" data-level="3" data-path="packages-part-of-the-project.html"><a href="packages-part-of-the-project.html"><i class="fa fa-check"></i><b>3</b> Packages Part of the Project</a></li>
 <li class="part"><span><b>I Creating a Covid19R Package</b></span></li>
-<li class="chapter" data-level="4" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html"><i class="fa fa-check"></i><b>4</b> Building a New Data Package</a></li>
-<li class="chapter" data-level="5" data-path="guidance-for-writing-package-vignettes.html"><a href="guidance-for-writing-package-vignettes.html"><i class="fa fa-check"></i><b>5</b> Guidance for Writing Package Vignettes</a></li>
-<li class="chapter" data-level="6" data-path="unit-tests-for-data-packages.html"><a href="unit-tests-for-data-packages.html"><i class="fa fa-check"></i><b>6</b> Unit Tests for Data Packages</a></li>
-<li class="chapter" data-level="7" data-path="a-checklist-for-pre-cran-submission.html"><a href="a-checklist-for-pre-cran-submission.html"><i class="fa fa-check"></i><b>7</b> A Checklist for pre-CRAN submission</a></li>
-<li class="chapter" data-level="8" data-path="submitting-to-cran-1.html"><a href="submitting-to-cran-1.html"><i class="fa fa-check"></i><b>8</b> Submitting to CRAN</a></li>
+<li class="chapter" data-level="4" data-path="guidance-for-writing-package-vignettes.html"><a href="guidance-for-writing-package-vignettes.html"><i class="fa fa-check"></i><b>4</b> Guidance for Writing Package Vignettes</a></li>
+<li class="chapter" data-level="5" data-path="unit-tests-for-data-packages.html"><a href="unit-tests-for-data-packages.html"><i class="fa fa-check"></i><b>5</b> Unit Tests for Data Packages</a></li>
+<li class="chapter" data-level="6" data-path="preparing-and-submitting-to-cran.html"><a href="preparing-and-submitting-to-cran.html"><i class="fa fa-check"></i><b>6</b> Preparing and Submitting to CRAN</a></li>
 <li class="part"><span><b>II Covid19R Standards</b></span></li>
-<li class="chapter" data-level="9" data-path="data-format-standard.html"><a href="data-format-standard.html"><i class="fa fa-check"></i><b>9</b> Data Format Standard</a></li>
-<li class="chapter" data-level="10" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>10</b> Standardized Vocabulary</a></li>
-<li class="chapter" data-level="11" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>11</b> Standardized Package Functions</a></li>
+<li class="chapter" data-level="7" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>7</b> Standardized Vocabulary</a></li>
+<li class="chapter" data-level="8" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>8</b> Standardized Package Functions</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -112,8 +108,22 @@
 </div>
 <div id="welcome-to-the-covid19r-project-documentation" class="section level1 unnumbered">
 <h1>Welcome to the Covid19R Project Documentation!</h1>
-<p>This is the documentation for the <a href="https://github.com/Covid19R">Covid19R Project</a>. We detail what the project is, how to be a part of it, and what minimal tidy standards we want data packages to conform to in order to bring all of our data together!</p>
+<p>The <a href="https://github.com/Covid19R">Covid19R Project</a> is an attempt to provide a set of standards for creating tidy Covid-19 related data distribution packages as well as a centralized method for then redistributing the data sets themselves within R. We’re trying to build a community with interoperable data standards in order to allow anyone using R to derive novel insights about this. global pandemic.</p>
+<p>In the documentation for the <a href="https://github.com/Covid19R">Covid19R Project</a>, we detail what the project is, how to be a part of it, and what minimal tidy standards we want data packages to conform to in order to bring all of our data together!</p>
+<div id="how-can-i-get-access-to-the-data" class="section level2 unnumbered">
+<h2>How can I get access to the data?</h2>
+<p>If you want to jump in and just get access to the data, install the <a href="https://github.com/Covid19R/covid19R">covid19R package</a>. You can read up on how to use it in <a href="the-covid19r-package.html#the-covid19r-package">The Covid19R Package</a>.</p>
+</div>
+<div id="what-are-your-standards" class="section level2 unnumbered">
+<h2>What are your standards?</h2>
+<p>We’ve attempted to create a unified tidy [Data Format Standard] which you can read about. Packages employ a <a href="standardized-vocabulary.html#standardized-vocabulary">Standardized Vocabulary</a>, and all implement a set of <a href="standardized-package-functions.html#standardized-package-functions">Standardized Package Functions</a> in order to make it easier for us to use packages to harvest the data for central distribution.</p>
+</div>
+<div id="i-want-to-contribute" class="section level2 unnumbered">
+<h2>I want to contribute!</h2>
+<p>If you want to conribute to the project, that’s wonderful! Check out our section on [Building a New Data Package] and the associated additional documentation. If you’d like to check out what we already have, check out the <a href="packages-part-of-the-project.html#packages-part-of-the-project">Packages Part of the Project</a>!</p>
+<p>Otherwise, read on to learn more.</p>
 
+</div>
 </div>
             </section>
 

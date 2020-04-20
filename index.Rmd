@@ -18,9 +18,23 @@ library(kableExtra)
 `%>%` <- magrittr::`%>%`
 ```
 
-# Welcome to the Covid19R Project Documentation! {-}
+# Welcome to the Covid19R Project Documentation! {-#welcome-to-the-covid19r-project-documentation}
 
-This is the documentation for the [Covid19R Project](https://github.com/Covid19R). We detail what the project is, how to be a part of it, and what minimal tidy standards we want data packages to conform to in order to bring all of our data together!
+The [Covid19R Project](https://github.com/Covid19R) is an attempt to provide a set of standards for creating tidy Covid-19 related data distribution packages as well as a centralized method for then redistributing the data sets themselves within R. We're trying to build a community with interoperable data standards in order to allow anyone using R to derive novel insights about this. global pandemic.
 
+In the documentation for the [Covid19R Project](https://github.com/Covid19R), we detail what the project is, how to be a part of it, and what minimal tidy standards we want data packages to conform to in order to bring all of our data together!
 
+## How can I get access to the data? {-}
+
+If you want to jump in and just get access to the data, install the [covid19R package](https://github.com/Covid19R/covid19R). You can read up on how to use it in [The Covid19R Package].
+
+## What are your standards? {-}
+
+We've attempted to create a unified tidy [Data Format Standard] which you can read about. Packages employ a [Standardized Vocabulary], and all implement a set of [Standardized Package Functions] in order to make it easier for us to use packages to harvest the data for central distribution.
+
+## I want to contribute! {-}
+
+If you want to conribute to the project, that's wonderful! Check out our section on [Building a New Data Package] and the associated additional documentation. If you'd like to check out what we already have, check out the [Packages Part of the Project]!
+
+Otherwise, read on to learn more.
 
