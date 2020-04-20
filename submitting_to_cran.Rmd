@@ -1,13 +1,74 @@
-# A Checklist for pre-CRAN submission
+# Preparing and Submitting to CRAN
 
-File this as an issue on your package and go from there!
+## A Checklist for pre-CRAN submission
 
-- [ ] Update the readme
+Before submitting to CRAN, file an issue on your package with the following checklist. Fill it out as you go along with the preparation to submit steps outlined below.
+
+```markdown
+- [ ] Update the README.Rmd and re-knit
 
 - [ ] Update the package site
 
-- [ ] Update the package vignette
+- [ ] Update the package vignette, if you have one
 
-- [ ] Update the package news
+- [ ] Update the package NEWS.md
 
-# Submitting to CRAN
+- [ ] Make sure you pass build check
+
+- [ ] Check your package with styler
+
+- [ ] Check your package with goodpractice::gp()
+
+- [ ] Run devtools checks and make sure you pass
+
+- [ ] Update the package cran-comments.md
+
+- [ ] Submit to CRAN with devtools::release()
+
+```
+
+## Guidance on executing your checklist.
+
+Before submitting to CRAN, we'd ask that you
+
+1. Make sure you pass build check (Check in the RMarkdown Build tab) with no errors, no warnings, no notes.
+
+2. Update any vignettes with basic examples, the NEWS.md file with what is being released (or any changes from previous versions), and the README.Rmd with any final details.
+
+3. Build a [pkgdown](https://pkgdown.r-lib.org/) website to help users. Make sure to link to it in your github repo.
+
+```{r pkgdown, eval = FALSE}
+# make a pkgdown website!
+pkgdown::build_site()
+```
+
+4. Check your code to make sure it is is easy to read and well styled. This can be done easily with the [styler](https://styler.r-lib.org/) package.
+
+```{r style, eval = FALSE}
+styler::style_pkg()
+```
+
+5. Take a final check through to make sure your package is obeying best-practices using the [goodpractice](https://mangothecat.github.io/goodpractice/) library.
+
+```{r best, eval = FALSE}
+goodpractice::gp()
+```
+
+6. Execute final checks. First, make sure after making revisions from the above, you pass Build Check again. Then, walk through the following final checks provided by [devtools](https://devtools.r-lib.org/).
+
+```{r, eval = FALSE}
+# for release - checks!
+devtools::check_win_release()
+devtools::release_checks()
+devtools::spell_check()
+devtools::check_rhub()
+```
+
+7. Release! Again, using devtools (which will check you)!
+
+```{r, eval = FALSE}
+#-------------
+# Release ####
+#-------------
+devtools::release()
+```
