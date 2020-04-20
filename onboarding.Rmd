@@ -46,7 +46,7 @@ OK, you're ready and raring to go. We're going to write this as if you are using
 
 - .Rbuildignore: Sub in your r project name. Edit as needed. 
 
-- DESCRIPTION: see all caps notes. For the LICENSE, see how the data is licensed. If it uses a [standard license for R](https://www.r-project.org/Licenses/), use [the appropriate usethis license function] to add to your description and put it in [setupcode.R](https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R). If not, keep the file LICENSE and edit the LICENSE file with either a link to the dataset license or the text of it.
+- DESCRIPTION: see all caps notes. For the LICENSE, first use a [standard license for R](https://www.r-project.org/Licenses/) by using [the appropriate usethis license function] to add to your description and put it in [setupcode.R](https://github.com/Covid19R/covid19_package_template/blob/master/setupcode.R). We recommend the MIT License. This covers your code. However, the data itself might have a different license. Make sure to add a link to it in the description, as well as include the most salient terms for the end-user. Be sure to add a link to the license in documentation for the dataset, if including it, as well and a link in the documentation for the `refresh_*()` functions described below.
 
 ## The meat of your task for the library
 
