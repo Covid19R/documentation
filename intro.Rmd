@@ -1,6 +1,6 @@
 # Introduction {#intro}
 
-The Covid19R Project started with the creation of the [coronavirus R package](http://github.com/RamiKrispin/coronavirus) by [Rami Krispin]((http://github.com/RamiKrispin/). This ppackage ulled from the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE) Coronavirus [repository](https://github.com/CSSEGISandData/COVID-19). Quickly, many members of the R community jumped in, both using it and contributing small additions and fixes - particularly as the JHU Data morphed quite a bit in the early days of the pandemic.
+The Covid19R Project started with the creation of the [coronavirus R package](http://github.com/RamiKrispin/coronavirus) by [Rami Krispin]((http://github.com/RamiKrispin/). This package ulled from the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE) Coronavirus [repository](https://github.com/CSSEGISandData/COVID-19). Quickly, many members of the R community jumped in, both using it and contributing small additions and fixes - particularly as the JHU Data morphed quite a bit in the early days of the pandemic.
 
 At the same time, multiple other data aggregation efforts sprang up, from the [Corona Data Scraper](https://coronadatascraper.com/#home) project, which provided automated scraping of many many sources online to the [Covid Tracking Project](https://covidtracking.com/), supported by multiple different media organizations. These are but a few of the data sources available.
 
