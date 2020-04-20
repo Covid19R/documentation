@@ -1,5 +1,52 @@
 # The Covid19R Package
 
-Tell us about the package
+The [covid19R package](https://github.com/Covid19R/covid19R) is written to access the data collected by packages that are part of the Covid19R project. It has minimal dependencies, and does not require you to install any of the other data access packages. Rather, it queries our building database of standardized tidy datasets, allowing you to search what is available, and then directly download the datasets that have been updated in the previous 6 hours.
 
+```{r cr19}
+library(covid19R)
 
+#for examples
+library(dplyr)
+```
+
+## Finding out what data we have with get_covid19_data_info()
+
+To see what data is available, `get_covid19_data_info()` returns a tibble of all data sets that are available, as well as information about each. This is the same information that individual data packages have returned with their own `get_info_*()` functions discussed in [Standardized Package Functions]. In addition, it provides information on when the data was last updated, and if the data package is currently able to acquire data, or is failing.
+
+Here is what we have at the time of writing this documentation.
+
+```{r dat}
+dat_info <- get_covid19_data_info() 
+
+dat_info %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive")) %>%
+  kableExtra::scroll_box(width = "100%", height = "100%")
+```
+
+The data can be easily filtered on to find the data most relevant to your effort, such as
+
+```{r filter_info}
+dat_info %>%
+  filter(stringr::str_detect(location_types, "state")) %>%
+  select(data_set_name, data_details) %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive")) %>%
+  kableExtra::scroll_box(width = "100%", height = "100%")
+```
+
+## Downloading a dataset with get_covid19_dataset()
+
+Once you have determined the relevant dataset you want, you can download it with `get_covid19_dataset()`. For example
+
+```{r ex}
+nytimes_states <- get_covid19_dataset("covid19nytimes_states")
+
+nytimes_states %>% 
+  head() %>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive"))
+```
