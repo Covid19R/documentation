@@ -2,6 +2,11 @@
 
 The [covid19R package](https://github.com/Covid19R/covid19R) is written to access the data collected by packages that are part of the Covid19R project. It has minimal dependencies, and does not require you to install any of the other data access packages. Rather, it queries our building database of standardized tidy datasets, allowing you to search what is available, and then directly download the datasets that have been updated in the previous 6 hours.
 
+```{r prep, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message=FALSE)
+```
+
 ```{r cr19}
 library(covid19R)
 
