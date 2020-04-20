@@ -1,0 +1,4 @@
+# Packages Part of the Project
+- [covid19R](https://github.com/Covid19R/covid19R) -  Our main package  
+- [covid19nytimes](https://github.com/Covid19R/covid19nytimes) - Accessing the NY Times State and County data 
+- [covid19france](https://github.com/Covid19R/covid19france) - Providing data from [opencovid19-fr](https://github.com/opencovid19-fr/data)

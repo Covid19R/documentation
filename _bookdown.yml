@@ -5,6 +5,21 @@ language:
 delete_merged_file: true
 repo: https://github.com/covid19R/documentation
 output_dir: docs
-rmd_files: ["index.Rmd", "intro.Rmd", "data-format.Rmd", "standardized-vocab.Rmd", 
-           "standardized-functions.Rmd", "data-sources.Rmd", "onboarding.Rmd", "submitting_to_cran.Rmd",
-           "vignettes.Rmd", "unit-tests.Rmd", "references.Rmd"]
+rmd_files: ["index.Rmd", 
+            "intro.Rmd", 
+            "covid19R.Rmd", 
+            "packages-part-of-the-project.Rmd", 
+
+            "onboarding.Rmd", 
+            "vignettes.Rmd", 
+            "unit-tests.Rmd", 
+            "submitting_to_cran.Rmd",
+            
+            "data-format.Rmd", 
+            "standardized-vocab.Rmd", 
+            "standardized-functions.Rmd", 
+            
+
+
+            "references.Rmd"
+            ]

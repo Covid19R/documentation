@@ -1,14 +1,32 @@
 # Introduction {#intro}
 
-The Covid19R Project started with the creation of the [coronavirus R package](http://github.com/RamiKrispin/coronavirus) by [Rami Krispin]((http://github.com/RamiKrispin/). This ppackage ulled from the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE) Coronavirus [repository](https://github.com/CSSEGISandData/COVID-19). Quickly, many members of the R community jumped in, both using it and contributing small additions and fixes - particularly as the JHU Data morphed quite a bit in the early days of the pandemic.
+## Origins
+
+The Covid19R Project started with the creation of the [coronavirus R package](http://github.com/RamiKrispin/coronavirus) by [Rami Krispin](http://github.com/RamiKrispin/). This package ulled from the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE) Coronavirus [repository](https://github.com/CSSEGISandData/COVID-19). Quickly, many members of the R community jumped in, both using it and contributing small additions and fixes - particularly as the JHU Data morphed quite a bit in the early days of the pandemic.
 
 At the same time, multiple other data aggregation efforts sprang up, from the [Corona Data Scraper](https://coronadatascraper.com/#home) project, which provided automated scraping of many many sources online to the [Covid Tracking Project](https://covidtracking.com/), supported by multiple different media organizations. These are but a few of the data sources available.
+
+## Why this project?
 
 As with any massive effort with multiple distributed data sources, the datset interface varies wildly from dataset to dataset. Moreover, different datasets track different things - sometimes for the same place. Researchers, however, often want to bring multiple datasets together swiftly in a standardized easy to user format. Moreover, doing it inside of an R package environment provides ease of use for data analysts, so that they do not have to spend the time searching the web, downloading, and aggregating data sets.
 
 The Covid19R project aims to create a unified interface to as many data sources as possible, providing a standardized [tidy data format](https://vita.had.co.nz/papers/tidy-data.pdf) across all sets. We aim to do this by having individuals (us or other contributors - like you!) write independent data packages for different datasets. These packages will have a handful of commonly specified functions that will read in and reshape the data into our standard format. After submitting the name of the package to us by [filing an issue on the covid19R package](https://github.com/Covid19R/covid19R/issues), we will add the package to our database, which will update all data sets daily. End-users can then access all data sets and information about them via the [covid19R package](https://github.com/Covid19R/covid19R), which has minimal dependencies (we know that processing some of those datasets in can require A LOT of data manipulation).
 
-Here in these documents, we lay out both our data standard as well as a general guide to onboarding a new data package. We hope you find it useful, and that it helps you contribute to the Covid19R Project!
+Here in these documents, we lay out both our data standard as well as a general guide to onboarding a new data package. 
+
+## Why many small data packages?
+
+One of the first questions that comes up is, why are we creating a project with many small data packages and once centralized distribution package - the [covid19R package](https://github.com/Covid19R/covid19R). This might at first seem overly complex. We've structured the project this was in order to ensure robust data delivery based on our own encounters with creating and maintaining data distribution packages, as well as efforts to add new data sets to the mix within R.
+
+1. **Data refresh fails.** Often. For many different data sets. We are in a time where new data sets are coming online daily, and data providers are revising their own data standards far more often than is optimal. This is not likely to change for some time. Many smaller data distribution packages ensures that, when one data source fails, they don't all fail.  
+
+2. **Lowering the bar on requirements for end-users.** By providing end-users access to all data sets via the [covid19R package](https://github.com/Covid19R/covid19R), we can give users a minimal dependency structure in order to access the data. Many data sources require extensive wrangling with multiple packages, often requiring a complex dependency tree. Rather than have users have to worry about all of that, creating multiple opportunities for points of failure, we opted to provide end-users something simple.  
+
+3. **Reducing the need for end-users to stay up-to-date.** If we are going to persue a multiple small data packages in order to reduce the possibility of data source failures causing a whole data distribution package from crashing down on everyone's heads, then we certaintly don't want to place the burdern on end-users to keep up to date with the latest and greatest new data source packages coming in to R. Heck, many of them may end up just on GitHub, and not even go to CRAN (although we hope they do!) Who has time for keeping track of that! Rather, by using the [covid19R package](https://github.com/Covid19R/covid19R), they can see what data is there at any time, filter to what they want, and move forward with salient analyses.  
+
+4. **Embracing community.** Honestly, building data packages is fun. And all sorts of interesting issues come up along the way. We are excited and hopeful that this effort creates a community of R users who build data acquisition packages. We have a low bar for what we require from each data package, which should make entry to being part of the project easy! Heck, we're hopeful that some groups out there use this project as a target for hackathons! Further, we hope that people find this a simple way to engage with the ongoing pandemic in a way that is meaningful to them, and does some good. It has certainly been such an experience for the three of us.
+
+5. **Providing an onramp to package development for new learners.** Building your first R package is hard. And yet, lots of people want to do it. We've tried to provide a wealth of materials to help those new to package building an easy first time out, as it were. Lots of people are trying to brush up on their skills right now, and hopefully we can provide a useful point of entry for interested folk to learn something about package development, or for R-user groups or courses to have a great target for a learning hackathon.
 
 
 
