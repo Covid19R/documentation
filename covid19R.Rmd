@@ -55,3 +55,29 @@ nytimes_states %>%
   kableExtra::kable_styling(
     bootstrap_options = c("striped","condensed", "responsive"))
 ```
+
+## Examining controlled vocabulary with get_covid19_controlled_vocab()
+
+In our data standard, we have three types of controlled vocabulary - `location_type`, `location_code_type`, and `data_type`. To see what the current controlled vocabulary is (both to understand the fields and to see if we should add more), use `get_covid19_controlled_vocab()` as below:
+
+
+```{r voc}
+get_covid19_controlled_vocab("location_type")%>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive"))
+```
+
+```{r voc_code}
+get_covid19_controlled_vocab("location_code_type")%>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive"))
+```
+
+```{r voc_dat}
+get_covid19_controlled_vocab("data_type")%>%
+  knitr::kable() %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive"))
+```
