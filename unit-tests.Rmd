@@ -1,3 +1,195 @@
 # Unit Tests for Data Packages
 
-Some things
+When developing a package (or generally production pipeline), unit testing is a powerful tool for quality control. It enables us to test the package functionality and outputs in different stages and set alerts when something went wrong or not according to the expectations. In the context of the Covid19R packages, having unit testing is critical to ensure the [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) (CI) of the data automation pipeline.
+
+## Unit testing in R
+
+There is more than one method for creating a unit testing in R depending on the functionality and type of workflow. For the Covid19R data packages, we recommend to set the following unit testing:
+
+* Function - set tests within the function that pull the raw data 
+* Build - create a set of unit testing that run during the build of the package 
+* Github Actions - integrate those tests on the package automation workflow on Github Actions. This will allow triggering email upon failure  
+
+## Building a unit testing within a function
+
+Setting a unit testing within a function is straightforward and based on the following workflow:
+
+* Define the characteristics of the expected value of the function (or a specific part of it). For example, if you are pulling data from an external source (API, Github repo, web scraping, etc.), the expected characteristics of the data are the number of columns, their names, the minimum number of raws, classes of each column (e.g., numeric, character, Date, etc.)
+* Set test (or tests to evaluate if those characteristics are exists
+* Define a set of actions if the test is fail
+
+Let's take, for example, the `data_refresh` [function](https://github.com/Covid19R/covid19swiss/blob/master/data_raw/pull_data.R) from the **covid19swiss** package: 
+
+``` r
+#-----------------------------------------
+# covid19swiss pulling Raw data
+#-----------------------------------------
+data_refresh <- function(){
+  #-------------- Setting --------------
+  files_list <- swiss_map <- df_raw <- NULL
+  #-------------- Functions --------------
+  `%>%` <- magrittr::`%>%`
+  #-------------- Github list of files --------------
+  files_list <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19swiss/master/csv/files_list.csv", stringsAsFactors = FALSE)
+  
+  #-------------- Test 1 - checking structure of the csv files list --------------
+  if(is.null(files_list)){
+    stop("The files_list is NULL")
+  } else if(ncol(files_list) != 1){
+    stop("The number of the files_list table is not valid")
+  } else if(nrow(files_list) != 27){
+    stop("The number of files on the files_list table is not valid")
+  }
+  #-------------- Pulling the map data --------------
+  swiss_map <- rnaturalearth::ne_states(country = "Switzerland", returnclass = "sf") %>%
+    dplyr::mutate(canton = substr(gn_a1_code, 4,5)) %>%
+    dplyr::select(canton, gn_a1_code) %>%
+    as.data.frame()
+  swiss_map$geometry <- NULL
+  #-------------- Pulling the raw data --------------
+  df_raw <- lapply(1:nrow(files_list), function(i){
+    
+    f <- files_list$x[i]
+    
+    print(f)
+    df <- read.csv(paste("https://raw.githubusercontent.com/openZH/covid_19/master/fallzahlen_kanton_total_csv_v2/", gsub('"', '', f), sep = ""), stringsAsFactors = FALSE)
+    return(df)
+  }) %>% dplyr::bind_rows()
+  #-------------- Test 2 - checking structure of the raw data --------------
+  if(is.null(df_raw)){
+    stop("The raw data is empty")
+  } else if(ncol(df_raw) != 17){
+    stop("The number of columns is not aligned the expected number of columns")
+  } else if(any(!names(df_raw)  %in%  c("date", "time", "abbreviation_canton_and_fl", "ncumul_tested", "ncumul_conf", "new_hosp",
+                                    "current_hosp", "current_icu", "current_vent", "ncumul_released", "ncumul_deceased", "source",
+                                    "ncumul_confirmed_non_resident", "current_hosp_non_resident", "ncumul_ICF", "TotalPosTests1", "ninst_ICU_intub"))){
+    stop("The columns names are not aligned the expected names")
+  }
+  
+  #-------------- Cleaning the data --------------
+  head(df_raw)
+  
+  covid19swiss <- df_raw %>%
+    dplyr::mutate(date = as.Date(date),
+                  canton = abbreviation_canton_and_fl) %>%
+    dplyr::group_by(date, canton) %>%
+    dplyr::summarise(total_tested = sum(ncumul_tested, na.rm = any(!is.na(ncumul_tested))),
+                     total_confirmed = sum(ncumul_conf, na.rm = any(!is.na(ncumul_tested))),
+                     new_hosp = sum(new_hosp, na.rm = any(!is.na(new_hosp))),
+                     current_hosp = sum(current_hosp, na.rm = any(!is.na(current_hosp))),
+                     current_icu = sum(current_icu, na.rm = any(!is.na(current_icu))),
+                     current_vent = sum(current_vent, na.rm = any(!is.na(current_vent))),
+                     total_recovered = sum(ncumul_released, na.rm = any(!is.na(ncumul_released))),
+                     total_death = sum(ncumul_deceased, na.rm = any(!is.na(ncumul_deceased)))) %>%
+    tidyr::pivot_longer(c(-date, - canton),
+                        names_to = "data_type",
+                        values_to = "value") %>%
+    dplyr::left_join(swiss_map, by = "canton") %>%
+    dplyr::mutate(location = canton,
+                  location_type = ifelse(canton == "FL", "Principality of Liechtenstein", "Canton of Switzerland"),
+                  location_code = gn_a1_code,
+                  location_code_type = "gn_a1_code") %>%
+    dplyr::select(date, location, location_type, location_code, location_code_type, data_type, value) %>%
+    as.data.frame()
+  head(covid19swiss)
+  #-------------- Test 3 - checking the stracture of the new data --------------
+  if(ncol(covid19swiss) != 7){
+    stop("The number of columns is not align with the expected one (7)")
+  } else if(nrow(covid19swiss) < 8200) {
+    stop("The number of rows is not align with the expected one")
+  } else if(min(covid19swiss$date) != as.Date("2020-02-25")){
+    stop("Stop, the starting date is not Feb 25")
+  }
+  
+  #-------------- Pulling the Github csv version--------------
+  git_df <- read.csv("https://raw.githubusercontent.com/Covid19R/covid19swiss/master/csv/covid19swiss.csv", stringsAsFactors = FALSE)
+  
+  git_df$date <- as.Date(git_df$date)
+  
+  
+  #-------------- Test 4 - checking the stracture of the Github data --------------
+  if(ncol(git_df) != 7){
+    stop("The number of columns is not align with the expected one (7)")
+  } else if(nrow(git_df) < 8200) {
+    stop("The number of rows is not align with the expected one")
+  } else if(min(git_df$date) != as.Date("2020-02-25")){
+    stop("Stop, the starting date is not Feb 25")
+  }
+  
+  if(nrow(covid19swiss) > nrow(git_df)){
+    print("Updates available")
+    usethis::use_data(covid19swiss, overwrite = TRUE)
+    write.csv(covid19swiss, "csv/covid19swiss.csv", row.names = FALSE)
+    print("The covid19swiss dataset was updated")
+  } else {
+    print("Updates are not available")
+  }
+  
+  return(print("Done..."))
+}
+
+```
+
+This function is doing to following:
+
+* Pulling a csv file with a list of the raw data files names
+* Pulling the raw data 
+* Pulling the most recent data available on the Github (Dev) version of the package
+* Comparing between the two datasets and testing if new data is available on the raw data
+* If new data is available, refresh the Github version of the package
+
+The list below describes several scenarios that could cause a failure in the workflow of the function and the corresponding tests:
+
+* This file list could potentially change whenever new data added or removed.  In the case of covid19swiss dataset, we expect 27 files (26 files for Switzerland cantons and one for the Principality of Liechtenstein). The following code will test if the structure of the file aligns with our expectation:
+
+``` r
+#-------------- Test 1 - checking structure of the csv files list --------------
+if(is.null(files_list)){
+  stop("The files_list is NULL")
+} else if(ncol(files_list) != 1){
+  stop("The number of the files_list table is not valid")
+} else if(nrow(files_list) != 27){
+  stop("The number of files on the files_list table is not valid")
+}
+```
+
+* When pulling data from an external resource that is not in our control, the function most likely to fail (or worse, build the data with the wrong fields) whenever the data is changing. Therefore, we will run the following tests to ensure that we are pulling the right data:
+    - Check if the return object is empty
+    - Test if the number of columns is aligned our expectations (17)
+    - Check if the names of the columns match the expected names
+    
+``` r
+#-------------- Test 2 - checking structure of the raw data --------------
+  if(is.null(df_raw)){
+    stop("The raw data is empty")
+  } else if(ncol(df_raw) != 17){
+    stop("The number of columns is not aligned the expected number of columns")
+  } else if(any(!names(df_raw)  %in%  c("date", "time", "abbreviation_canton_and_fl", 
+                                        "ncumul_tested", "ncumul_conf", "new_hosp",
+                                        "current_hosp", "current_icu", "current_vent", 
+                                        "ncumul_released", "ncumul_deceased", "source",
+                                        "ncumul_confirmed_non_resident", "current_hosp_non_resident", 
+                                        "ncumul_ICF", "TotalPosTests1", "ninst_ICU_intub"))){
+    stop("The columns names are not aligned the expected names")
+  }
+```
+
+* Last but not least, we want to test the structure of the data after cleaning and preprocessing the raw data with the following tests:
+    - Number of columns
+    - Number of raws greater than some threshold 
+    - Starting date in the data set aligned the expectation
+
+``` r
+#-------------- Test 3 - checking the stracture of the new data --------------
+  if(ncol(covid19swiss) != 7){
+    stop("The number of columns is not align with the expected one (7)")
+  } else if(nrow(covid19swiss) < 8200) {
+    stop("The number of rows is not align with the expected one")
+  } else if(min(covid19swiss$date) != as.Date("2020-02-25")){
+    stop("Stop, the starting date is not Feb 25")
+  }
+```
+
+
+## Setting unit testing with the testthat package
+

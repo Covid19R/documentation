@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation</title>
-  <meta name="description" content="Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <title>7 Preparing and Submitting to CRAN | The Covid19R Project Documentation</title>
+  <meta name="description" content="7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
+  <meta property="og:title" content="7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
+  <meta property="og:description" content="7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
   <meta name="github-repo" content="covid19R/documentation" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
+  <meta name="twitter:title" content="7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
   
-  <meta name="twitter:description" content="Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
+  <meta name="twitter:description" content="7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
   
 
 <meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
 
 
-<meta name="date" content="2020-04-20" />
+<meta name="date" content="2020-04-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="unit-tests-for-data-packages.html"/>
-<link rel="next" href="data-format-standard.html"/>
+<link rel="prev" href="unit-tests-for-data-packages.html">
+<link rel="next" href="part-covid19r-standards.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,9 +40,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
 
 
 
@@ -54,25 +51,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +80,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -136,12 +135,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="the-covid19r-package.html"><a href="the-covid19r-package.html"><i class="fa fa-check"></i><b>2</b> The Covid19R Package</a></li>
 <li class="chapter" data-level="3" data-path="packages-part-of-the-project.html"><a href="packages-part-of-the-project.html"><i class="fa fa-check"></i><b>3</b> Packages Part of the Project</a></li>
-<li class="part"><span><b>I Creating a Covid19R Package</b></span></li>
+<li class="chapter" data-level="" data-path="part-creating-a-covid19r-package.html"><a href="part-creating-a-covid19r-package.html"><i class="fa fa-check"></i>(PART) Creating a Covid19R Package</a></li>
 <li class="chapter" data-level="4" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html"><i class="fa fa-check"></i><b>4</b> Building a New Data Package</a></li>
 <li class="chapter" data-level="5" data-path="guidance-for-writing-package-vignettes.html"><a href="guidance-for-writing-package-vignettes.html"><i class="fa fa-check"></i><b>5</b> Guidance for Writing Package Vignettes</a></li>
 <li class="chapter" data-level="6" data-path="unit-tests-for-data-packages.html"><a href="unit-tests-for-data-packages.html"><i class="fa fa-check"></i><b>6</b> Unit Tests for Data Packages</a></li>
 <li class="chapter" data-level="7" data-path="preparing-and-submitting-to-cran.html"><a href="preparing-and-submitting-to-cran.html"><i class="fa fa-check"></i><b>7</b> Preparing and Submitting to CRAN</a></li>
-<li class="part"><span><b>II Covid19R Standards</b></span></li>
+<li class="chapter" data-level="" data-path="part-covid19r-standards.html"><a href="part-covid19r-standards.html"><i class="fa fa-check"></i>(PART) Covid19R Standards</a></li>
 <li class="chapter" data-level="8" data-path="data-format-standard.html"><a href="data-format-standard.html"><i class="fa fa-check"></i><b>8</b> Data Format Standard</a></li>
 <li class="chapter" data-level="9" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>9</b> Standardized Vocabulary</a></li>
 <li class="chapter" data-level="10" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>10</b> Standardized Package Functions</a></li>
@@ -166,88 +165,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preparing-and-submitting-to-cran" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> Preparing and Submitting to CRAN</h1>
-<div id="a-checklist-for-pre-cran-submission" class="section level2">
-<h2><span class="header-section-number">7.1</span> A Checklist for pre-CRAN submission</h2>
+<div id="preparing-and-submitting-to-cran" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Preparing and Submitting to CRAN</h1>
+<div id="a-checklist-for-pre-cran-submission" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> A Checklist for pre-CRAN submission</h2>
 <p>Before submitting to CRAN, file an issue on your package with the following checklist. Fill it out as you go along with the preparation to submit steps outlined below.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb8-1" data-line-number="1">- <span class="fl">[ ] Update the README.Rmd and re-knit</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">- <span class="fl">[ ] Update the package site</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">- <span class="fl">[ ] Update the package vignette, if you have one</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">- <span class="fl">[ ] Update the package NEWS.md</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">- <span class="fl">[ ] Make sure you pass build check</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">- <span class="fl">[ ] Check your package with styler</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">- <span class="fl">[ ] Check your package with goodpractice::gp()</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">- <span class="fl">[ ] Run devtools checks and make sure you pass</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">- <span class="fl">[ ] Update the package cran-comments.md</span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">- <span class="fl">[ ] Submit to CRAN with devtools::release()</span></a></code></pre></div>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="preparing-and-submitting-to-cran.html#cb8-1"></a><span class="ss">- </span><span class="va">[ ]</span> Update the README.Rmd and re-knit</span>
+<span id="cb8-2"><a href="preparing-and-submitting-to-cran.html#cb8-2"></a></span>
+<span id="cb8-3"><a href="preparing-and-submitting-to-cran.html#cb8-3"></a><span class="ss">- </span><span class="va">[ ]</span> Update the package site</span>
+<span id="cb8-4"><a href="preparing-and-submitting-to-cran.html#cb8-4"></a></span>
+<span id="cb8-5"><a href="preparing-and-submitting-to-cran.html#cb8-5"></a><span class="ss">- </span><span class="va">[ ]</span> Update the package vignette, if you have one</span>
+<span id="cb8-6"><a href="preparing-and-submitting-to-cran.html#cb8-6"></a></span>
+<span id="cb8-7"><a href="preparing-and-submitting-to-cran.html#cb8-7"></a><span class="ss">- </span><span class="va">[ ]</span> Update the package NEWS.md</span>
+<span id="cb8-8"><a href="preparing-and-submitting-to-cran.html#cb8-8"></a></span>
+<span id="cb8-9"><a href="preparing-and-submitting-to-cran.html#cb8-9"></a><span class="ss">- </span><span class="va">[ ]</span> Make sure you pass build check</span>
+<span id="cb8-10"><a href="preparing-and-submitting-to-cran.html#cb8-10"></a></span>
+<span id="cb8-11"><a href="preparing-and-submitting-to-cran.html#cb8-11"></a><span class="ss">- </span><span class="va">[ ]</span> Check your package with styler</span>
+<span id="cb8-12"><a href="preparing-and-submitting-to-cran.html#cb8-12"></a></span>
+<span id="cb8-13"><a href="preparing-and-submitting-to-cran.html#cb8-13"></a><span class="ss">- </span><span class="va">[ ]</span> Check your package with goodpractice::gp()</span>
+<span id="cb8-14"><a href="preparing-and-submitting-to-cran.html#cb8-14"></a></span>
+<span id="cb8-15"><a href="preparing-and-submitting-to-cran.html#cb8-15"></a><span class="ss">- </span><span class="va">[ ]</span> Run devtools checks and make sure you pass</span>
+<span id="cb8-16"><a href="preparing-and-submitting-to-cran.html#cb8-16"></a></span>
+<span id="cb8-17"><a href="preparing-and-submitting-to-cran.html#cb8-17"></a><span class="ss">- </span><span class="va">[ ]</span> Update the package cran-comments.md</span>
+<span id="cb8-18"><a href="preparing-and-submitting-to-cran.html#cb8-18"></a></span>
+<span id="cb8-19"><a href="preparing-and-submitting-to-cran.html#cb8-19"></a><span class="ss">- </span><span class="va">[ ]</span> Submit to CRAN with devtools::release()</span></code></pre></div>
 </div>
-<div id="guidance-on-executing-your-checklist." class="section level2">
-<h2><span class="header-section-number">7.2</span> Guidance on executing your checklist.</h2>
+<div id="guidance-on-executing-your-checklist." class="section level2" number="7.2">
+<h2 number="7.2"><span class="header-section-number">7.2</span> Guidance on executing your checklist.</h2>
 <p>Before submitting to CRAN, we’d ask that you</p>
 <ol style="list-style-type: decimal">
 <li><p>Make sure you pass build check (Check in the RMarkdown Build tab) with no errors, no warnings, no notes.</p></li>
 <li><p>Update any vignettes with basic examples, the NEWS.md file with what is being released (or any changes from previous versions), and the README.Rmd with any final details.</p></li>
 <li><p>Build a <a href="https://pkgdown.r-lib.org/">pkgdown</a> website to help users. Make sure to link to it in your github repo.</p></li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># make a pkgdown website!</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">pkgdown<span class="op">::</span><span class="kw">build_site</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="preparing-and-submitting-to-cran.html#cb9-1"></a><span class="co"># make a pkgdown website!</span></span>
+<span id="cb9-2"><a href="preparing-and-submitting-to-cran.html#cb9-2"></a>pkgdown<span class="op">::</span><span class="kw">build_site</span>()</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Check your code to make sure it is is easy to read and well styled. This can be done easily with the <a href="https://styler.r-lib.org/">styler</a> package.</li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">styler<span class="op">::</span><span class="kw">style_pkg</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="preparing-and-submitting-to-cran.html#cb10-1"></a>styler<span class="op">::</span><span class="kw">style_pkg</span>()</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Take a final check through to make sure your package is obeying best-practices using the <a href="https://mangothecat.github.io/goodpractice/">goodpractice</a> library.</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">goodpractice<span class="op">::</span><span class="kw">gp</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="preparing-and-submitting-to-cran.html#cb11-1"></a>goodpractice<span class="op">::</span><span class="kw">gp</span>()</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Execute final checks. First, make sure after making revisions from the above, you pass Build Check again. Then, walk through the following final checks provided by <a href="https://devtools.r-lib.org/">devtools</a>.</li>
 </ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># for release - checks!</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">check_win_release</span>()</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">release_checks</span>()</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">devtools<span class="op">::</span><span class="kw">spell_check</span>()</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">devtools<span class="op">::</span><span class="kw">check_rhub</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="preparing-and-submitting-to-cran.html#cb12-1"></a><span class="co"># for release - checks!</span></span>
+<span id="cb12-2"><a href="preparing-and-submitting-to-cran.html#cb12-2"></a>devtools<span class="op">::</span><span class="kw">check_win_release</span>()</span>
+<span id="cb12-3"><a href="preparing-and-submitting-to-cran.html#cb12-3"></a>devtools<span class="op">::</span><span class="kw">release_checks</span>()</span>
+<span id="cb12-4"><a href="preparing-and-submitting-to-cran.html#cb12-4"></a>devtools<span class="op">::</span><span class="kw">spell_check</span>()</span>
+<span id="cb12-5"><a href="preparing-and-submitting-to-cran.html#cb12-5"></a>devtools<span class="op">::</span><span class="kw">check_rhub</span>()</span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Release! Again, using devtools (which will check you)!</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">#-------------</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co"># Release ####</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#-------------</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">devtools<span class="op">::</span><span class="kw">release</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="preparing-and-submitting-to-cran.html#cb13-1"></a><span class="co">#-------------</span></span>
+<span id="cb13-2"><a href="preparing-and-submitting-to-cran.html#cb13-2"></a><span class="co"># Release ####</span></span>
+<span id="cb13-3"><a href="preparing-and-submitting-to-cran.html#cb13-3"></a><span class="co">#-------------</span></span>
+<span id="cb13-4"><a href="preparing-and-submitting-to-cran.html#cb13-4"></a>devtools<span class="op">::</span><span class="kw">release</span>()</span></code></pre></div>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="unit-tests-for-data-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-format-standard.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="part-covid19r-standards.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -255,11 +249,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
+"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -271,10 +266,6 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },

@@ -4,62 +4,35 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<<<<<<< HEAD
-  <title>12 Unit Tests for Data Packages | The Covid19R Project Documentation</title>
-  <meta name="description" content="12 Unit Tests for Data Packages | The Covid19R Project Documentation" />
+  <title>5 Unit Tests for Data Packages | The Covid19R Project Documentation</title>
+  <meta name="description" content="5 Unit Tests for Data Packages | The Covid19R Project Documentation" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Unit Tests for Data Packages | The Covid19R Project Documentation" />
+  <meta property="og:title" content="5 Unit Tests for Data Packages | The Covid19R Project Documentation" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="12 Unit Tests for Data Packages | The Covid19R Project Documentation" />
+  <meta property="og:description" content="5 Unit Tests for Data Packages | The Covid19R Project Documentation" />
   <meta name="github-repo" content="covid19R/documentation" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Unit Tests for Data Packages | The Covid19R Project Documentation" />
+  <meta name="twitter:title" content="5 Unit Tests for Data Packages | The Covid19R Project Documentation" />
   
-  <meta name="twitter:description" content="12 Unit Tests for Data Packages | The Covid19R Project Documentation" />
-=======
-  <title>Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation</title>
-  <meta name="description" content="Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation" />
-  <meta property="og:type" content="book" />
-  
-  
-  <meta property="og:description" content="Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation" />
-  <meta name="github-repo" content="covid19R/documentation" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation" />
-  
-  <meta name="twitter:description" content="Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation" />
->>>>>>> 19ee75c4bc3c22471dfb56434a26619a079443aa
+  <meta name="twitter:description" content="5 Unit Tests for Data Packages | The Covid19R Project Documentation" />
   
 
 <meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
 
 
-<<<<<<< HEAD
-<meta name="date" content="2020-04-15" />
-=======
-<meta name="date" content="2020-04-20" />
->>>>>>> 19ee75c4bc3c22471dfb56434a26619a079443aa
+<meta name="date" content="2020-04-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<<<<<<< HEAD
 <link rel="prev" href="guidance-for-writing-package-vignettes.html">
-<link rel="next" href="references.html">
-=======
-<link rel="prev" href="guidance-for-writing-package-vignettes.html"/>
-<link rel="next" href="preparing-and-submitting-to-cran.html"/>
->>>>>>> 19ee75c4bc3c22471dfb56434a26619a079443aa
+<link rel="next" href="preparing-and-submitting-to-cran.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -74,29 +47,30 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -105,9 +79,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -156,40 +130,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Documentation for the Covid19R Project</a></li>
 
 <li class="divider"></li>
-<<<<<<< HEAD
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to the Covid19R Project Documentation!</a></li>
-<li class="chapter" data-level="2" data-path="packages-part-of-the-project.html"><a href="packages-part-of-the-project.html"><i class="fa fa-check"></i><b>2</b> Packages Part of the Project</a></li>
-<li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
-<li class="chapter" data-level="4" data-path="data-format-standard.html"><a href="data-format-standard.html"><i class="fa fa-check"></i><b>4</b> Data Format Standard</a></li>
-<li class="chapter" data-level="5" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>5</b> Standardized Vocabulary</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#adding-to-the-standardized-vocabularies"><i class="fa fa-check"></i><b>5.1</b> Adding To the Standardized Vocabularies</a></li>
-<li class="chapter" data-level="5.2" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-types"><i class="fa fa-check"></i><b>5.2</b> Current Location Types</a></li>
-<li class="chapter" data-level="5.3" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-location-code-types"><i class="fa fa-check"></i><b>5.3</b> Current Location Code Types</a></li>
-<li class="chapter" data-level="5.4" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html#current-data-types"><i class="fa fa-check"></i><b>5.4</b> Current Data Types</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>6</b> Standardized Package Functions</a></li>
-<li class="chapter" data-level="7" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>7</b> Data Sources</a></li>
-<li class="chapter" data-level="8" data-path="onboarding-a-new-data-package.html"><a href="onboarding-a-new-data-package.html"><i class="fa fa-check"></i><b>8</b> Onboarding a New Data Package</a></li>
-<li class="chapter" data-level="9" data-path="submitting-to-cran.html"><a href="submitting-to-cran.html"><i class="fa fa-check"></i><b>9</b> Submitting to CRAN</a></li>
-<li class="chapter" data-level="10" data-path="a-checklist-for-pre-cran-submission.html"><a href="a-checklist-for-pre-cran-submission.html"><i class="fa fa-check"></i><b>10</b> A Checklist for pre-CRAN submission</a></li>
-<li class="chapter" data-level="11" data-path="guidance-for-writing-package-vignettes.html"><a href="guidance-for-writing-package-vignettes.html"><i class="fa fa-check"></i><b>11</b> Guidance for Writing Package Vignettes</a></li>
-<li class="chapter" data-level="12" data-path="unit-tests-for-data-packages.html"><a href="unit-tests-for-data-packages.html"><i class="fa fa-check"></i><b>12</b> Unit Tests for Data Packages</a></li>
-=======
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to the Covid19R Project Documentation!</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="the-covid19r-package.html"><a href="the-covid19r-package.html"><i class="fa fa-check"></i><b>2</b> The Covid19R Package</a></li>
 <li class="chapter" data-level="3" data-path="packages-part-of-the-project.html"><a href="packages-part-of-the-project.html"><i class="fa fa-check"></i><b>3</b> Packages Part of the Project</a></li>
-<li class="part"><span><b>I Creating a Covid19R Package</b></span></li>
-<li class="chapter" data-level="4" data-path="building-a-new-data-package.html"><a href="building-a-new-data-package.html"><i class="fa fa-check"></i><b>4</b> Building a New Data Package</a></li>
-<li class="chapter" data-level="5" data-path="guidance-for-writing-package-vignettes.html"><a href="guidance-for-writing-package-vignettes.html"><i class="fa fa-check"></i><b>5</b> Guidance for Writing Package Vignettes</a></li>
-<li class="chapter" data-level="6" data-path="unit-tests-for-data-packages.html"><a href="unit-tests-for-data-packages.html"><i class="fa fa-check"></i><b>6</b> Unit Tests for Data Packages</a></li>
-<li class="chapter" data-level="7" data-path="preparing-and-submitting-to-cran.html"><a href="preparing-and-submitting-to-cran.html"><i class="fa fa-check"></i><b>7</b> Preparing and Submitting to CRAN</a></li>
-<li class="part"><span><b>II Covid19R Standards</b></span></li>
-<li class="chapter" data-level="8" data-path="data-format-standard.html"><a href="data-format-standard.html"><i class="fa fa-check"></i><b>8</b> Data Format Standard</a></li>
-<li class="chapter" data-level="9" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>9</b> Standardized Vocabulary</a></li>
-<li class="chapter" data-level="10" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>10</b> Standardized Package Functions</a></li>
->>>>>>> 19ee75c4bc3c22471dfb56434a26619a079443aa
+<li class="chapter" data-level="" data-path="part-creating-a-covid19r-package.html"><a href="part-creating-a-covid19r-package.html"><i class="fa fa-check"></i>(PART) Creating a Covid19R Package</a></li>
+<li class="chapter" data-level="4" data-path="guidance-for-writing-package-vignettes.html"><a href="guidance-for-writing-package-vignettes.html"><i class="fa fa-check"></i><b>4</b> Guidance for Writing Package Vignettes</a></li>
+<li class="chapter" data-level="5" data-path="unit-tests-for-data-packages.html"><a href="unit-tests-for-data-packages.html"><i class="fa fa-check"></i><b>5</b> Unit Tests for Data Packages</a></li>
+<li class="chapter" data-level="6" data-path="preparing-and-submitting-to-cran.html"><a href="preparing-and-submitting-to-cran.html"><i class="fa fa-check"></i><b>6</b> Preparing and Submitting to CRAN</a></li>
+<li class="chapter" data-level="" data-path="part-covid19r-standards.html"><a href="part-covid19r-standards.html"><i class="fa fa-check"></i>(PART) Covid19R Standards</a></li>
+<li class="chapter" data-level="7" data-path="standardized-vocabulary.html"><a href="standardized-vocabulary.html"><i class="fa fa-check"></i><b>7</b> Standardized Vocabulary</a></li>
+<li class="chapter" data-level="8" data-path="standardized-package-functions.html"><a href="standardized-package-functions.html"><i class="fa fa-check"></i><b>8</b> Standardized Package Functions</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -211,15 +162,195 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<<<<<<< HEAD
-<div id="unit-tests-for-data-packages" class="section level1" number="12">
-<h1 number="12"><span class="header-section-number">12</span> Unit Tests for Data Packages</h1>
-=======
-<div id="unit-tests-for-data-packages" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Unit Tests for Data Packages</h1>
->>>>>>> 19ee75c4bc3c22471dfb56434a26619a079443aa
-<p>Some things</p>
+<div id="unit-tests-for-data-packages" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Unit Tests for Data Packages</h1>
+<p>When developing a package (or generally production pipeline), unit testing is a powerful tool for quality control. It enables us to test the package functionality and outputs in different stages and set alerts when something went wrong or not according to the expectations. In the context of the Covid19R packages, having unit testing is critical to ensure the <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> (CI) of the data automation pipeline.</p>
+<div id="unit-testing-in-r" class="section level2" number="5.1">
+<h2 number="5.1"><span class="header-section-number">5.1</span> Unit testing in R</h2>
+<p>There is more than one method for creating a unit testing in R depending on the functionality and type of workflow. For the Covid19R data packages, we recommend to set the following unit testing:</p>
+<ul>
+<li>Function - set tests within the function that pull the raw data</li>
+<li>Build - create a set of unit testing that run during the build of the package</li>
+<li>Github Actions - integrate those tests on the package automation workflow on Github Actions. This will allow triggering email upon failure</li>
+</ul>
+</div>
+<div id="building-a-unit-testing-within-a-function" class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Building a unit testing within a function</h2>
+<p>Setting a unit testing within a function is straightforward and based on the following workflow:</p>
+<ul>
+<li>Define the characteristics of the expected value of the function (or a specific part of it). For example, if you are pulling data from an external source (API, Github repo, web scraping, etc.), the expected characteristics of the data are the number of columns, their names, the minimum number of raws, classes of each column (e.g., numeric, character, Date, etc.)</li>
+<li>Set test (or tests to evaluate if those characteristics are exists</li>
+<li>Define a set of actions if the test is fail</li>
+</ul>
+<p>Let’s take, for example, the <code>data_refresh</code> <a href="https://github.com/Covid19R/covid19swiss/blob/master/data_raw/pull_data.R">function</a> from the <strong>covid19swiss</strong> package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="unit-tests-for-data-packages.html#cb1-1"></a><span class="co">#-----------------------------------------</span></span>
+<span id="cb1-2"><a href="unit-tests-for-data-packages.html#cb1-2"></a><span class="co"># covid19swiss pulling Raw data</span></span>
+<span id="cb1-3"><a href="unit-tests-for-data-packages.html#cb1-3"></a><span class="co">#-----------------------------------------</span></span>
+<span id="cb1-4"><a href="unit-tests-for-data-packages.html#cb1-4"></a>data_refresh &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb1-5"><a href="unit-tests-for-data-packages.html#cb1-5"></a>  <span class="co">#-------------- Setting --------------</span></span>
+<span id="cb1-6"><a href="unit-tests-for-data-packages.html#cb1-6"></a>  files_list &lt;-<span class="st"> </span>swiss_map &lt;-<span class="st"> </span>df_raw &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb1-7"><a href="unit-tests-for-data-packages.html#cb1-7"></a>  <span class="co">#-------------- Functions --------------</span></span>
+<span id="cb1-8"><a href="unit-tests-for-data-packages.html#cb1-8"></a>  <span class="st">`</span><span class="dt">%&gt;%</span><span class="st">`</span> &lt;-<span class="st"> </span>magrittr<span class="op">::</span><span class="st">`</span><span class="dt">%&gt;%</span><span class="st">`</span></span>
+<span id="cb1-9"><a href="unit-tests-for-data-packages.html#cb1-9"></a>  <span class="co">#-------------- Github list of files --------------</span></span>
+<span id="cb1-10"><a href="unit-tests-for-data-packages.html#cb1-10"></a>  files_list &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Covid19R/covid19swiss/master/csv/files_list.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb1-11"><a href="unit-tests-for-data-packages.html#cb1-11"></a>  </span>
+<span id="cb1-12"><a href="unit-tests-for-data-packages.html#cb1-12"></a>  <span class="co">#-------------- Test 1 - checking structure of the csv files list --------------</span></span>
+<span id="cb1-13"><a href="unit-tests-for-data-packages.html#cb1-13"></a>  <span class="cf">if</span>(<span class="kw">is.null</span>(files_list)){</span>
+<span id="cb1-14"><a href="unit-tests-for-data-packages.html#cb1-14"></a>    <span class="kw">stop</span>(<span class="st">&quot;The files_list is NULL&quot;</span>)</span>
+<span id="cb1-15"><a href="unit-tests-for-data-packages.html#cb1-15"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb1-16"><a href="unit-tests-for-data-packages.html#cb1-16"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of the files_list table is not valid&quot;</span>)</span>
+<span id="cb1-17"><a href="unit-tests-for-data-packages.html#cb1-17"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">27</span>){</span>
+<span id="cb1-18"><a href="unit-tests-for-data-packages.html#cb1-18"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of files on the files_list table is not valid&quot;</span>)</span>
+<span id="cb1-19"><a href="unit-tests-for-data-packages.html#cb1-19"></a>  }</span>
+<span id="cb1-20"><a href="unit-tests-for-data-packages.html#cb1-20"></a>  <span class="co">#-------------- Pulling the map data --------------</span></span>
+<span id="cb1-21"><a href="unit-tests-for-data-packages.html#cb1-21"></a>  swiss_map &lt;-<span class="st"> </span>rnaturalearth<span class="op">::</span><span class="kw">ne_states</span>(<span class="dt">country =</span> <span class="st">&quot;Switzerland&quot;</span>, <span class="dt">returnclass =</span> <span class="st">&quot;sf&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-22"><a href="unit-tests-for-data-packages.html#cb1-22"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">canton =</span> <span class="kw">substr</span>(gn_a1_code, <span class="dv">4</span>,<span class="dv">5</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb1-23"><a href="unit-tests-for-data-packages.html#cb1-23"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(canton, gn_a1_code) <span class="op">%&gt;%</span></span>
+<span id="cb1-24"><a href="unit-tests-for-data-packages.html#cb1-24"></a><span class="st">    </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb1-25"><a href="unit-tests-for-data-packages.html#cb1-25"></a>  swiss_map<span class="op">$</span>geometry &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb1-26"><a href="unit-tests-for-data-packages.html#cb1-26"></a>  <span class="co">#-------------- Pulling the raw data --------------</span></span>
+<span id="cb1-27"><a href="unit-tests-for-data-packages.html#cb1-27"></a>  df_raw &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(files_list), <span class="cf">function</span>(i){</span>
+<span id="cb1-28"><a href="unit-tests-for-data-packages.html#cb1-28"></a>    </span>
+<span id="cb1-29"><a href="unit-tests-for-data-packages.html#cb1-29"></a>    f &lt;-<span class="st"> </span>files_list<span class="op">$</span>x[i]</span>
+<span id="cb1-30"><a href="unit-tests-for-data-packages.html#cb1-30"></a>    </span>
+<span id="cb1-31"><a href="unit-tests-for-data-packages.html#cb1-31"></a>    <span class="kw">print</span>(f)</span>
+<span id="cb1-32"><a href="unit-tests-for-data-packages.html#cb1-32"></a>    df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">paste</span>(<span class="st">&quot;https://raw.githubusercontent.com/openZH/covid_19/master/fallzahlen_kanton_total_csv_v2/&quot;</span>, <span class="kw">gsub</span>(<span class="st">&#39;&quot;&#39;</span>, <span class="st">&#39;&#39;</span>, f), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb1-33"><a href="unit-tests-for-data-packages.html#cb1-33"></a>    <span class="kw">return</span>(df)</span>
+<span id="cb1-34"><a href="unit-tests-for-data-packages.html#cb1-34"></a>  }) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>()</span>
+<span id="cb1-35"><a href="unit-tests-for-data-packages.html#cb1-35"></a>  <span class="co">#-------------- Test 2 - checking structure of the raw data --------------</span></span>
+<span id="cb1-36"><a href="unit-tests-for-data-packages.html#cb1-36"></a>  <span class="cf">if</span>(<span class="kw">is.null</span>(df_raw)){</span>
+<span id="cb1-37"><a href="unit-tests-for-data-packages.html#cb1-37"></a>    <span class="kw">stop</span>(<span class="st">&quot;The raw data is empty&quot;</span>)</span>
+<span id="cb1-38"><a href="unit-tests-for-data-packages.html#cb1-38"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(df_raw) <span class="op">!=</span><span class="st"> </span><span class="dv">17</span>){</span>
+<span id="cb1-39"><a href="unit-tests-for-data-packages.html#cb1-39"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not aligned the expected number of columns&quot;</span>)</span>
+<span id="cb1-40"><a href="unit-tests-for-data-packages.html#cb1-40"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">any</span>(<span class="op">!</span><span class="kw">names</span>(df_raw)  <span class="op">%in%</span><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;abbreviation_canton_and_fl&quot;</span>, <span class="st">&quot;ncumul_tested&quot;</span>, <span class="st">&quot;ncumul_conf&quot;</span>, <span class="st">&quot;new_hosp&quot;</span>,</span>
+<span id="cb1-41"><a href="unit-tests-for-data-packages.html#cb1-41"></a>                                    <span class="st">&quot;current_hosp&quot;</span>, <span class="st">&quot;current_icu&quot;</span>, <span class="st">&quot;current_vent&quot;</span>, <span class="st">&quot;ncumul_released&quot;</span>, <span class="st">&quot;ncumul_deceased&quot;</span>, <span class="st">&quot;source&quot;</span>,</span>
+<span id="cb1-42"><a href="unit-tests-for-data-packages.html#cb1-42"></a>                                    <span class="st">&quot;ncumul_confirmed_non_resident&quot;</span>, <span class="st">&quot;current_hosp_non_resident&quot;</span>, <span class="st">&quot;ncumul_ICF&quot;</span>, <span class="st">&quot;TotalPosTests1&quot;</span>, <span class="st">&quot;ninst_ICU_intub&quot;</span>))){</span>
+<span id="cb1-43"><a href="unit-tests-for-data-packages.html#cb1-43"></a>    <span class="kw">stop</span>(<span class="st">&quot;The columns names are not aligned the expected names&quot;</span>)</span>
+<span id="cb1-44"><a href="unit-tests-for-data-packages.html#cb1-44"></a>  }</span>
+<span id="cb1-45"><a href="unit-tests-for-data-packages.html#cb1-45"></a>  </span>
+<span id="cb1-46"><a href="unit-tests-for-data-packages.html#cb1-46"></a>  <span class="co">#-------------- Cleaning the data --------------</span></span>
+<span id="cb1-47"><a href="unit-tests-for-data-packages.html#cb1-47"></a>  <span class="kw">head</span>(df_raw)</span>
+<span id="cb1-48"><a href="unit-tests-for-data-packages.html#cb1-48"></a>  </span>
+<span id="cb1-49"><a href="unit-tests-for-data-packages.html#cb1-49"></a>  covid19swiss &lt;-<span class="st"> </span>df_raw <span class="op">%&gt;%</span></span>
+<span id="cb1-50"><a href="unit-tests-for-data-packages.html#cb1-50"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">as.Date</span>(date),</span>
+<span id="cb1-51"><a href="unit-tests-for-data-packages.html#cb1-51"></a>                  <span class="dt">canton =</span> abbreviation_canton_and_fl) <span class="op">%&gt;%</span></span>
+<span id="cb1-52"><a href="unit-tests-for-data-packages.html#cb1-52"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(date, canton) <span class="op">%&gt;%</span></span>
+<span id="cb1-53"><a href="unit-tests-for-data-packages.html#cb1-53"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">total_tested =</span> <span class="kw">sum</span>(ncumul_tested, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_tested))),</span>
+<span id="cb1-54"><a href="unit-tests-for-data-packages.html#cb1-54"></a>                     <span class="dt">total_confirmed =</span> <span class="kw">sum</span>(ncumul_conf, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_tested))),</span>
+<span id="cb1-55"><a href="unit-tests-for-data-packages.html#cb1-55"></a>                     <span class="dt">new_hosp =</span> <span class="kw">sum</span>(new_hosp, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(new_hosp))),</span>
+<span id="cb1-56"><a href="unit-tests-for-data-packages.html#cb1-56"></a>                     <span class="dt">current_hosp =</span> <span class="kw">sum</span>(current_hosp, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(current_hosp))),</span>
+<span id="cb1-57"><a href="unit-tests-for-data-packages.html#cb1-57"></a>                     <span class="dt">current_icu =</span> <span class="kw">sum</span>(current_icu, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(current_icu))),</span>
+<span id="cb1-58"><a href="unit-tests-for-data-packages.html#cb1-58"></a>                     <span class="dt">current_vent =</span> <span class="kw">sum</span>(current_vent, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(current_vent))),</span>
+<span id="cb1-59"><a href="unit-tests-for-data-packages.html#cb1-59"></a>                     <span class="dt">total_recovered =</span> <span class="kw">sum</span>(ncumul_released, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_released))),</span>
+<span id="cb1-60"><a href="unit-tests-for-data-packages.html#cb1-60"></a>                     <span class="dt">total_death =</span> <span class="kw">sum</span>(ncumul_deceased, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_deceased)))) <span class="op">%&gt;%</span></span>
+<span id="cb1-61"><a href="unit-tests-for-data-packages.html#cb1-61"></a><span class="st">    </span>tidyr<span class="op">::</span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="op">-</span>date, <span class="op">-</span><span class="st"> </span>canton),</span>
+<span id="cb1-62"><a href="unit-tests-for-data-packages.html#cb1-62"></a>                        <span class="dt">names_to =</span> <span class="st">&quot;data_type&quot;</span>,</span>
+<span id="cb1-63"><a href="unit-tests-for-data-packages.html#cb1-63"></a>                        <span class="dt">values_to =</span> <span class="st">&quot;value&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-64"><a href="unit-tests-for-data-packages.html#cb1-64"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">left_join</span>(swiss_map, <span class="dt">by =</span> <span class="st">&quot;canton&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-65"><a href="unit-tests-for-data-packages.html#cb1-65"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">location =</span> canton,</span>
+<span id="cb1-66"><a href="unit-tests-for-data-packages.html#cb1-66"></a>                  <span class="dt">location_type =</span> <span class="kw">ifelse</span>(canton <span class="op">==</span><span class="st"> &quot;FL&quot;</span>, <span class="st">&quot;Principality of Liechtenstein&quot;</span>, <span class="st">&quot;Canton of Switzerland&quot;</span>),</span>
+<span id="cb1-67"><a href="unit-tests-for-data-packages.html#cb1-67"></a>                  <span class="dt">location_code =</span> gn_a1_code,</span>
+<span id="cb1-68"><a href="unit-tests-for-data-packages.html#cb1-68"></a>                  <span class="dt">location_code_type =</span> <span class="st">&quot;gn_a1_code&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-69"><a href="unit-tests-for-data-packages.html#cb1-69"></a><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(date, location, location_type, location_code, location_code_type, data_type, value) <span class="op">%&gt;%</span></span>
+<span id="cb1-70"><a href="unit-tests-for-data-packages.html#cb1-70"></a><span class="st">    </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb1-71"><a href="unit-tests-for-data-packages.html#cb1-71"></a>  <span class="kw">head</span>(covid19swiss)</span>
+<span id="cb1-72"><a href="unit-tests-for-data-packages.html#cb1-72"></a>  <span class="co">#-------------- Test 3 - checking the stracture of the new data --------------</span></span>
+<span id="cb1-73"><a href="unit-tests-for-data-packages.html#cb1-73"></a>  <span class="cf">if</span>(<span class="kw">ncol</span>(covid19swiss) <span class="op">!=</span><span class="st"> </span><span class="dv">7</span>){</span>
+<span id="cb1-74"><a href="unit-tests-for-data-packages.html#cb1-74"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not align with the expected one (7)&quot;</span>)</span>
+<span id="cb1-75"><a href="unit-tests-for-data-packages.html#cb1-75"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(covid19swiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8200</span>) {</span>
+<span id="cb1-76"><a href="unit-tests-for-data-packages.html#cb1-76"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of rows is not align with the expected one&quot;</span>)</span>
+<span id="cb1-77"><a href="unit-tests-for-data-packages.html#cb1-77"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">min</span>(covid19swiss<span class="op">$</span>date) <span class="op">!=</span><span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-02-25&quot;</span>)){</span>
+<span id="cb1-78"><a href="unit-tests-for-data-packages.html#cb1-78"></a>    <span class="kw">stop</span>(<span class="st">&quot;Stop, the starting date is not Feb 25&quot;</span>)</span>
+<span id="cb1-79"><a href="unit-tests-for-data-packages.html#cb1-79"></a>  }</span>
+<span id="cb1-80"><a href="unit-tests-for-data-packages.html#cb1-80"></a>  </span>
+<span id="cb1-81"><a href="unit-tests-for-data-packages.html#cb1-81"></a>  <span class="co">#-------------- Pulling the Github csv version--------------</span></span>
+<span id="cb1-82"><a href="unit-tests-for-data-packages.html#cb1-82"></a>  git_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Covid19R/covid19swiss/master/csv/covid19swiss.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb1-83"><a href="unit-tests-for-data-packages.html#cb1-83"></a>  </span>
+<span id="cb1-84"><a href="unit-tests-for-data-packages.html#cb1-84"></a>  git_df<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(git_df<span class="op">$</span>date)</span>
+<span id="cb1-85"><a href="unit-tests-for-data-packages.html#cb1-85"></a>  </span>
+<span id="cb1-86"><a href="unit-tests-for-data-packages.html#cb1-86"></a>  </span>
+<span id="cb1-87"><a href="unit-tests-for-data-packages.html#cb1-87"></a>  <span class="co">#-------------- Test 4 - checking the stracture of the Github data --------------</span></span>
+<span id="cb1-88"><a href="unit-tests-for-data-packages.html#cb1-88"></a>  <span class="cf">if</span>(<span class="kw">ncol</span>(git_df) <span class="op">!=</span><span class="st"> </span><span class="dv">7</span>){</span>
+<span id="cb1-89"><a href="unit-tests-for-data-packages.html#cb1-89"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not align with the expected one (7)&quot;</span>)</span>
+<span id="cb1-90"><a href="unit-tests-for-data-packages.html#cb1-90"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(git_df) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8200</span>) {</span>
+<span id="cb1-91"><a href="unit-tests-for-data-packages.html#cb1-91"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of rows is not align with the expected one&quot;</span>)</span>
+<span id="cb1-92"><a href="unit-tests-for-data-packages.html#cb1-92"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">min</span>(git_df<span class="op">$</span>date) <span class="op">!=</span><span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-02-25&quot;</span>)){</span>
+<span id="cb1-93"><a href="unit-tests-for-data-packages.html#cb1-93"></a>    <span class="kw">stop</span>(<span class="st">&quot;Stop, the starting date is not Feb 25&quot;</span>)</span>
+<span id="cb1-94"><a href="unit-tests-for-data-packages.html#cb1-94"></a>  }</span>
+<span id="cb1-95"><a href="unit-tests-for-data-packages.html#cb1-95"></a>  </span>
+<span id="cb1-96"><a href="unit-tests-for-data-packages.html#cb1-96"></a>  <span class="cf">if</span>(<span class="kw">nrow</span>(covid19swiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">nrow</span>(git_df)){</span>
+<span id="cb1-97"><a href="unit-tests-for-data-packages.html#cb1-97"></a>    <span class="kw">print</span>(<span class="st">&quot;Updates available&quot;</span>)</span>
+<span id="cb1-98"><a href="unit-tests-for-data-packages.html#cb1-98"></a>    usethis<span class="op">::</span><span class="kw">use_data</span>(covid19swiss, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1-99"><a href="unit-tests-for-data-packages.html#cb1-99"></a>    <span class="kw">write.csv</span>(covid19swiss, <span class="st">&quot;csv/covid19swiss.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb1-100"><a href="unit-tests-for-data-packages.html#cb1-100"></a>    <span class="kw">print</span>(<span class="st">&quot;The covid19swiss dataset was updated&quot;</span>)</span>
+<span id="cb1-101"><a href="unit-tests-for-data-packages.html#cb1-101"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-102"><a href="unit-tests-for-data-packages.html#cb1-102"></a>    <span class="kw">print</span>(<span class="st">&quot;Updates are not available&quot;</span>)</span>
+<span id="cb1-103"><a href="unit-tests-for-data-packages.html#cb1-103"></a>  }</span>
+<span id="cb1-104"><a href="unit-tests-for-data-packages.html#cb1-104"></a>  </span>
+<span id="cb1-105"><a href="unit-tests-for-data-packages.html#cb1-105"></a>  <span class="kw">return</span>(<span class="kw">print</span>(<span class="st">&quot;Done...&quot;</span>))</span>
+<span id="cb1-106"><a href="unit-tests-for-data-packages.html#cb1-106"></a>}</span></code></pre></div>
+<p>This function is doing to following:</p>
+<ul>
+<li>Pulling a csv file with a list of the raw data files names</li>
+<li>Pulling the raw data</li>
+<li>Pulling the most recent data available on the Github (Dev) version of the package</li>
+<li>Comparing between the two datasets and testing if new data is available on the raw data</li>
+<li>If new data is available, refresh the Github version of the package</li>
+</ul>
+<p>The list below describes several scenarios that could cause a failure in the workflow of the function and the corresponding tests:</p>
+<ul>
+<li>This file list could potentially change whenever new data added or removed. In the case of covid19swiss dataset, we expect 27 files (26 files for Switzerland cantons and one for the Principality of Liechtenstein). The following code will test if the structure of the file aligns with our expectation:</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="unit-tests-for-data-packages.html#cb2-1"></a><span class="co">#-------------- Test 1 - checking structure of the csv files list --------------</span></span>
+<span id="cb2-2"><a href="unit-tests-for-data-packages.html#cb2-2"></a><span class="cf">if</span>(<span class="kw">is.null</span>(files_list)){</span>
+<span id="cb2-3"><a href="unit-tests-for-data-packages.html#cb2-3"></a>  <span class="kw">stop</span>(<span class="st">&quot;The files_list is NULL&quot;</span>)</span>
+<span id="cb2-4"><a href="unit-tests-for-data-packages.html#cb2-4"></a>} <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb2-5"><a href="unit-tests-for-data-packages.html#cb2-5"></a>  <span class="kw">stop</span>(<span class="st">&quot;The number of the files_list table is not valid&quot;</span>)</span>
+<span id="cb2-6"><a href="unit-tests-for-data-packages.html#cb2-6"></a>} <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">27</span>){</span>
+<span id="cb2-7"><a href="unit-tests-for-data-packages.html#cb2-7"></a>  <span class="kw">stop</span>(<span class="st">&quot;The number of files on the files_list table is not valid&quot;</span>)</span>
+<span id="cb2-8"><a href="unit-tests-for-data-packages.html#cb2-8"></a>}</span></code></pre></div>
+<ul>
+<li>When pulling data from an external resource that is not in our control, the function most likely to fail (or worse, build the data with the wrong fields) whenever the data is changing. Therefore, we will run the following tests to ensure that we are pulling the right data:
+<ul>
+<li>Check if the return object is empty</li>
+<li>Test if the number of columns is aligned our expectations (17)</li>
+<li>Check if the names of the columns match the expected names</li>
+</ul></li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="unit-tests-for-data-packages.html#cb3-1"></a><span class="co">#-------------- Test 2 - checking structure of the raw data --------------</span></span>
+<span id="cb3-2"><a href="unit-tests-for-data-packages.html#cb3-2"></a>  <span class="cf">if</span>(<span class="kw">is.null</span>(df_raw)){</span>
+<span id="cb3-3"><a href="unit-tests-for-data-packages.html#cb3-3"></a>    <span class="kw">stop</span>(<span class="st">&quot;The raw data is empty&quot;</span>)</span>
+<span id="cb3-4"><a href="unit-tests-for-data-packages.html#cb3-4"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(df_raw) <span class="op">!=</span><span class="st"> </span><span class="dv">17</span>){</span>
+<span id="cb3-5"><a href="unit-tests-for-data-packages.html#cb3-5"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not aligned the expected number of columns&quot;</span>)</span>
+<span id="cb3-6"><a href="unit-tests-for-data-packages.html#cb3-6"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">any</span>(<span class="op">!</span><span class="kw">names</span>(df_raw)  <span class="op">%in%</span><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;abbreviation_canton_and_fl&quot;</span>, </span>
+<span id="cb3-7"><a href="unit-tests-for-data-packages.html#cb3-7"></a>                                        <span class="st">&quot;ncumul_tested&quot;</span>, <span class="st">&quot;ncumul_conf&quot;</span>, <span class="st">&quot;new_hosp&quot;</span>,</span>
+<span id="cb3-8"><a href="unit-tests-for-data-packages.html#cb3-8"></a>                                        <span class="st">&quot;current_hosp&quot;</span>, <span class="st">&quot;current_icu&quot;</span>, <span class="st">&quot;current_vent&quot;</span>, </span>
+<span id="cb3-9"><a href="unit-tests-for-data-packages.html#cb3-9"></a>                                        <span class="st">&quot;ncumul_released&quot;</span>, <span class="st">&quot;ncumul_deceased&quot;</span>, <span class="st">&quot;source&quot;</span>,</span>
+<span id="cb3-10"><a href="unit-tests-for-data-packages.html#cb3-10"></a>                                        <span class="st">&quot;ncumul_confirmed_non_resident&quot;</span>, <span class="st">&quot;current_hosp_non_resident&quot;</span>, </span>
+<span id="cb3-11"><a href="unit-tests-for-data-packages.html#cb3-11"></a>                                        <span class="st">&quot;ncumul_ICF&quot;</span>, <span class="st">&quot;TotalPosTests1&quot;</span>, <span class="st">&quot;ninst_ICU_intub&quot;</span>))){</span>
+<span id="cb3-12"><a href="unit-tests-for-data-packages.html#cb3-12"></a>    <span class="kw">stop</span>(<span class="st">&quot;The columns names are not aligned the expected names&quot;</span>)</span>
+<span id="cb3-13"><a href="unit-tests-for-data-packages.html#cb3-13"></a>  }</span></code></pre></div>
+<ul>
+<li>Last but not least, we want to test the structure of the data after cleaning and preprocessing the raw data with the following tests:
+<ul>
+<li>Number of columns</li>
+<li>Number of raws greater than some threshold</li>
+<li>Starting date in the data set aligned the expectation</li>
+</ul></li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="unit-tests-for-data-packages.html#cb4-1"></a><span class="co">#-------------- Test 3 - checking the stracture of the new data --------------</span></span>
+<span id="cb4-2"><a href="unit-tests-for-data-packages.html#cb4-2"></a>  <span class="cf">if</span>(<span class="kw">ncol</span>(covid19swiss) <span class="op">!=</span><span class="st"> </span><span class="dv">7</span>){</span>
+<span id="cb4-3"><a href="unit-tests-for-data-packages.html#cb4-3"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not align with the expected one (7)&quot;</span>)</span>
+<span id="cb4-4"><a href="unit-tests-for-data-packages.html#cb4-4"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(covid19swiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8200</span>) {</span>
+<span id="cb4-5"><a href="unit-tests-for-data-packages.html#cb4-5"></a>    <span class="kw">stop</span>(<span class="st">&quot;The number of rows is not align with the expected one&quot;</span>)</span>
+<span id="cb4-6"><a href="unit-tests-for-data-packages.html#cb4-6"></a>  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">min</span>(covid19swiss<span class="op">$</span>date) <span class="op">!=</span><span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-02-25&quot;</span>)){</span>
+<span id="cb4-7"><a href="unit-tests-for-data-packages.html#cb4-7"></a>    <span class="kw">stop</span>(<span class="st">&quot;Stop, the starting date is not Feb 25&quot;</span>)</span>
+<span id="cb4-8"><a href="unit-tests-for-data-packages.html#cb4-8"></a>  }</span></code></pre></div>
+</div>
+<div id="setting-unit-testing-with-the-testthat-package" class="section level2" number="5.3">
+<h2 number="5.3"><span class="header-section-number">5.3</span> Setting unit testing with the testthat package</h2>
 
+</div>
 </div>
             </section>
 
