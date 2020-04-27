@@ -193,3 +193,8 @@ if(is.null(files_list)){
 
 ## Setting unit testing with the testthat package
 
+The second type of unit testing conducts on the package level. It enables to test a wider range of the package functionality. In R, the most common approach for creating such type of unit testing is with the testthat package. Using this package allows you to set multiple tests that will execute whenever running the build check (R CMD check). This ensures that you will identify problems before submitting the package to CRAN (assuming you build good tests!).
+
+``` r
+usethis::use_testthat()
+```

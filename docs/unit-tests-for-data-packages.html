@@ -352,6 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="setting-unit-testing-with-the-testthat-package" class="section level2" number="6.3">
 <h2 number="6.3"><span class="header-section-number">6.3</span> Setting unit testing with the testthat package</h2>
+<p>The second type of unit testing conducts on the package level. It enables to test a wider range of the package functionality. In R, the most common approach for creating such type of unit testing is with the testthat package. Using this package allows you to set multiple tests that will execute whenever running the build check (R CMD check). This ensures that you will identify problems before submitting the package to CRAN (assuming you build good tests!).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="unit-tests-for-data-packages.html#cb12-1"></a>usethis<span class="op">::</span><span class="kw">use_testthat</span>()</span></code></pre></div>
 
 </div>
 </div>
