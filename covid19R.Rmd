@@ -46,12 +46,12 @@ dat_info %>%
 
 Once you have determined the relevant dataset you want, you can download it with `get_covid19_dataset()`. For example
 
-```{r ex}
+```{r ex, message=FALSE}
 nytimes_states <- get_covid19_dataset("covid19nytimes_states")
 
 nytimes_states %>% 
   head() %>%
-  knitr::kable() %>%
+  knitr::kable(format = "html") %>%
   kableExtra::kable_styling(
     bootstrap_options = c("striped","condensed", "responsive"))
 ```
@@ -62,22 +62,22 @@ In our data standard, we have three types of controlled vocabulary - `location_t
 
 
 ```{r voc}
-get_covid19_controlled_vocab("location_type")%>%
-  knitr::kable() %>%
+get_covid19_controlled_vocab("location_type") %>%
+  knitr::kable(format = "html") %>%
   kableExtra::kable_styling(
     bootstrap_options = c("striped","condensed", "responsive"))
 ```
 
 ```{r voc_code}
-get_covid19_controlled_vocab("location_code_type")%>%
-  knitr::kable() %>%
+get_covid19_controlled_vocab("location_code_type") %>%
+  knitr::kable(format = "html") %>%
   kableExtra::kable_styling(
     bootstrap_options = c("striped","condensed", "responsive"))
 ```
 
 ```{r voc_dat}
-get_covid19_controlled_vocab("data_type")%>%
-  knitr::kable() %>%
+get_covid19_controlled_vocab("data_type") %>%
+  knitr::kable(format = "html") %>%
   kableExtra::kable_styling(
     bootstrap_options = c("striped","condensed", "responsive"))
 ```

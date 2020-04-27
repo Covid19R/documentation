@@ -268,7 +268,7 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 </tr>
 <tr>
@@ -309,7 +309,7 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 </tr>
 <tr>
@@ -350,7 +350,7 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-26
+2020-04-27
 </td>
 </tr>
 <tr>
@@ -453,7 +453,7 @@ Open Source data from multiple public reporting data throughout Canada. For more
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">nytimes_states <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">head</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(</a>
 <a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>,<span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</a></code></pre></div>
 <table class="table table-striped table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
@@ -485,7 +485,7 @@ value
 <tbody>
 <tr>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 <td style="text-align:left;">
 Alabama
@@ -503,12 +503,12 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-6213
+6421
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 <td style="text-align:left;">
 Alabama
@@ -526,12 +526,12 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-213
+219
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 <td style="text-align:left;">
 Alaska
@@ -549,12 +549,12 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-337
+339
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 <td style="text-align:left;">
 Alaska
@@ -577,7 +577,7 @@ deaths_total
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 <td style="text-align:left;">
 Arizona
@@ -595,12 +595,12 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-6280
+6526
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-25
+2020-04-26
 </td>
 <td style="text-align:left;">
 Arizona
@@ -618,7 +618,7 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-275
+277
 </td>
 </tr>
 </tbody>
@@ -627,8 +627,8 @@ deaths_total
 <div id="examining-controlled-vocabulary-with-get_covid19_controlled_vocab" class="section level2">
 <h2><span class="header-section-number">2.3</span> Examining controlled vocabulary with get_covid19_controlled_vocab()</h2>
 <p>In our data standard, we have three types of controlled vocabulary - <code>location_type</code>, <code>location_code_type</code>, and <code>data_type</code>. To see what the current controlled vocabulary is (both to understand the fields and to see if we should add more), use <code>get_covid19_controlled_vocab()</code> as below:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">get_covid19_controlled_vocab</span>(<span class="st">&quot;location_type&quot;</span>)<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>() <span class="op">%&gt;%</span></a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">get_covid19_controlled_vocab</span>(<span class="st">&quot;location_type&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>,<span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</a></code></pre></div>
 <table class="table table-striped table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
@@ -693,8 +693,8 @@ the cantons of Switzerland and Principality of Liechtenstein (FL)
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">get_covid19_controlled_vocab</span>(<span class="st">&quot;location_code_type&quot;</span>)<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>() <span class="op">%&gt;%</span></a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">get_covid19_controlled_vocab</span>(<span class="st">&quot;location_code_type&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>,<span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</a></code></pre></div>
 <table class="table table-striped table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
@@ -706,6 +706,9 @@ location_code_type
 <th style="text-align:left;">
 description
 </th>
+<th style="text-align:left;">
+URL
+</th>
 </tr>
 </thead>
 <tbody>
@@ -716,6 +719,9 @@ fips_code
 <td style="text-align:left;">
 The federal code in US designating regions of governance
 </td>
+<td style="text-align:left;">
+<a href="https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt" class="uri">https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt</a>
+</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -723,6 +729,9 @@ iso_3166
 </td>
 <td style="text-align:left;">
 ISO 3166 is a standard published by the International Organization for Standardization (ISO) that defines codes for the names of countries, dependent territories, special areas of geographical interest, and their principal subdivisions (e.g., provinces or states).
+</td>
+<td style="text-align:left;">
+<a href="https://en.wikipedia.org/wiki/ISO_3166" class="uri">https://en.wikipedia.org/wiki/ISO_3166</a>
 </td>
 </tr>
 <tr>
@@ -732,11 +741,14 @@ iso_3166_2
 <td style="text-align:left;">
 ISO 3166-2 is part of the ISO 3166 standard published by the International Organization for Standardization (ISO), and defines codes for identifying the principal subdivisions (e.g., provinces or states) of all countries coded in ISO 3166-1.
 </td>
+<td style="text-align:left;">
+<a href="https://en.wikipedia.org/wiki/ISO_3166-2" class="uri">https://en.wikipedia.org/wiki/ISO_3166-2</a>
+</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">get_covid19_controlled_vocab</span>(<span class="st">&quot;data_type&quot;</span>)<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>() <span class="op">%&gt;%</span></a>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">get_covid19_controlled_vocab</span>(<span class="st">&quot;data_type&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(</a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>,<span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</a></code></pre></div>
 <table class="table table-striped table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
