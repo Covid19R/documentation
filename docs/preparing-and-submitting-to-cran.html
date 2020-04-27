@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation</title>
   <meta name="description" content="Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Preparing and Submitting to CRAN | The Covid19R Project Documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
 
 
-<meta name="date" content="2020-04-20" />
+<meta name="date" content="2020-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -171,25 +171,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="a-checklist-for-pre-cran-submission" class="section level2">
 <h2><span class="header-section-number">7.1</span> A Checklist for pre-CRAN submission</h2>
 <p>Before submitting to CRAN, file an issue on your package with the following checklist. Fill it out as you go along with the preparation to submit steps outlined below.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb8-1" data-line-number="1">- <span class="fl">[ ] Update the README.Rmd and re-knit</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">- <span class="fl">[ ] Update the package site</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">- <span class="fl">[ ] Update the package vignette, if you have one</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">- <span class="fl">[ ] Update the package NEWS.md</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">- <span class="fl">[ ] Make sure you pass build check</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">- <span class="fl">[ ] Check your package with styler</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">- <span class="fl">[ ] Check your package with goodpractice::gp()</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">- <span class="fl">[ ] Run devtools checks and make sure you pass</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">- <span class="fl">[ ] Update the package cran-comments.md</span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">- <span class="fl">[ ] Submit to CRAN with devtools::release()</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb13-1" data-line-number="1">- <span class="fl">[ ] Update the README.Rmd and re-knit</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">- <span class="fl">[ ] Update the package site</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">- <span class="fl">[ ] Update the package vignette, if you have one</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">- <span class="fl">[ ] Update the package NEWS.md</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">- <span class="fl">[ ] Make sure you pass build check</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">- <span class="fl">[ ] Check your package with styler</span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">- <span class="fl">[ ] Check your package with goodpractice::gp()</span></a>
+<a class="sourceLine" id="cb13-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">- <span class="fl">[ ] Run devtools checks and make sure you pass</span></a>
+<a class="sourceLine" id="cb13-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">- <span class="fl">[ ] Update the package cran-comments.md</span></a>
+<a class="sourceLine" id="cb13-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb13-19" data-line-number="19">- <span class="fl">[ ] Submit to CRAN with devtools::release()</span></a></code></pre></div>
 </div>
 <div id="guidance-on-executing-your-checklist." class="section level2">
 <h2><span class="header-section-number">7.2</span> Guidance on executing your checklist.</h2>
@@ -199,31 +199,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Update any vignettes with basic examples, the NEWS.md file with what is being released (or any changes from previous versions), and the README.Rmd with any final details.</p></li>
 <li><p>Build a <a href="https://pkgdown.r-lib.org/">pkgdown</a> website to help users. Make sure to link to it in your github repo.</p></li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># make a pkgdown website!</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">pkgdown<span class="op">::</span><span class="kw">build_site</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># make a pkgdown website!</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">pkgdown<span class="op">::</span><span class="kw">build_site</span>()</a></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Check your code to make sure it is is easy to read and well styled. This can be done easily with the <a href="https://styler.r-lib.org/">styler</a> package.</li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">styler<span class="op">::</span><span class="kw">style_pkg</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">styler<span class="op">::</span><span class="kw">style_pkg</span>()</a></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Take a final check through to make sure your package is obeying best-practices using the <a href="https://mangothecat.github.io/goodpractice/">goodpractice</a> library.</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">goodpractice<span class="op">::</span><span class="kw">gp</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">goodpractice<span class="op">::</span><span class="kw">gp</span>()</a></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Execute final checks. First, make sure after making revisions from the above, you pass Build Check again. Then, walk through the following final checks provided by <a href="https://devtools.r-lib.org/">devtools</a>.</li>
 </ol>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># for release - checks!</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">check_win_release</span>()</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">release_checks</span>()</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">devtools<span class="op">::</span><span class="kw">spell_check</span>()</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">devtools<span class="op">::</span><span class="kw">check_rhub</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># for release - checks!</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">check_win_release</span>()</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">release_checks</span>()</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">devtools<span class="op">::</span><span class="kw">spell_check</span>()</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">devtools<span class="op">::</span><span class="kw">check_rhub</span>()</a></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li>Release! Again, using devtools (which will check you)!</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co">#-------------</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="co"># Release ####</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#-------------</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">devtools<span class="op">::</span><span class="kw">release</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">#-------------</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="co"># Release ####</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co">#-------------</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">devtools<span class="op">::</span><span class="kw">release</span>()</a></code></pre></div>
 
 </div>
 </div>

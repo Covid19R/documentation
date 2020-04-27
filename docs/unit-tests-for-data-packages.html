@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation</title>
   <meta name="description" content="Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Unit Tests for Data Packages | The Covid19R Project Documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
 
 
-<meta name="date" content="2020-04-20" />
+<meta name="date" content="2020-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,8 +168,195 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="unit-tests-for-data-packages" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Unit Tests for Data Packages</h1>
-<p>Some things</p>
+<p>When developing a package (or generally production pipeline), unit testing is a powerful tool for quality control. It enables us to test the package functionality and outputs in different stages and set alerts when something went wrong or not according to the expectations. In the context of the Covid19R packages, having unit testing is critical to ensure the <a href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> (CI) of the data automation pipeline.</p>
+<div id="unit-testing-in-r" class="section level2">
+<h2><span class="header-section-number">6.1</span> Unit testing in R</h2>
+<p>There is more than one method for creating a unit testing in R depending on the functionality and type of workflow. For the Covid19R data packages, we recommend to set the following unit testing:</p>
+<ul>
+<li>Function - set tests within the function that pull the raw data</li>
+<li>Build - create a set of unit testing that run during the build of the package</li>
+<li>Github Actions - integrate those tests on the package automation workflow on Github Actions. This will allow triggering email upon failure</li>
+</ul>
+</div>
+<div id="building-a-unit-testing-within-a-function" class="section level2">
+<h2><span class="header-section-number">6.2</span> Building a unit testing within a function</h2>
+<p>Setting a unit testing within a function is straightforward and based on the following workflow:</p>
+<ul>
+<li>Define the characteristics of the expected value of the function (or a specific part of it). For example, if you are pulling data from an external source (API, Github repo, web scraping, etc.), the expected characteristics of the data are the number of columns, their names, the minimum number of raws, classes of each column (e.g., numeric, character, Date, etc.)</li>
+<li>Set test (or tests to evaluate if those characteristics are exists</li>
+<li>Define a set of actions if the test is fail</li>
+</ul>
+<p>Let’s take, for example, the <code>data_refresh</code> <a href="https://github.com/Covid19R/covid19swiss/blob/master/data_raw/pull_data.R">function</a> from the <strong>covid19swiss</strong> package:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">#-----------------------------------------</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co"># covid19swiss pulling Raw data</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#-----------------------------------------</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">data_refresh &lt;-<span class="st"> </span><span class="cf">function</span>(){</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="co">#-------------- Setting --------------</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  files_list &lt;-<span class="st"> </span>swiss_map &lt;-<span class="st"> </span>df_raw &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">  <span class="co">#-------------- Functions --------------</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">  <span class="st">`</span><span class="dt">%&gt;%</span><span class="st">`</span> &lt;-<span class="st"> </span>magrittr<span class="op">::</span><span class="st">`</span><span class="dt">%&gt;%</span><span class="st">`</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">  <span class="co">#-------------- Github list of files --------------</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">  files_list &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Covid19R/covid19swiss/master/csv/files_list.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">  </a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">  <span class="co">#-------------- Test 1 - checking structure of the csv files list --------------</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">  <span class="cf">if</span>(<span class="kw">is.null</span>(files_list)){</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="kw">stop</span>(<span class="st">&quot;The files_list is NULL&quot;</span>)</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">    <span class="kw">stop</span>(<span class="st">&quot;The number of the files_list table is not valid&quot;</span>)</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">27</span>){</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    <span class="kw">stop</span>(<span class="st">&quot;The number of files on the files_list table is not valid&quot;</span>)</a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">  }</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">  <span class="co">#-------------- Pulling the map data --------------</span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">  swiss_map &lt;-<span class="st"> </span>rnaturalearth<span class="op">::</span><span class="kw">ne_states</span>(<span class="dt">country =</span> <span class="st">&quot;Switzerland&quot;</span>, <span class="dt">returnclass =</span> <span class="st">&quot;sf&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">canton =</span> <span class="kw">substr</span>(gn_a1_code, <span class="dv">4</span>,<span class="dv">5</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(canton, gn_a1_code) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24"><span class="st">    </span><span class="kw">as.data.frame</span>()</a>
+<a class="sourceLine" id="cb8-25" data-line-number="25">  swiss_map<span class="op">$</span>geometry &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">  <span class="co">#-------------- Pulling the raw data --------------</span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">  df_raw &lt;-<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(files_list), <span class="cf">function</span>(i){</a>
+<a class="sourceLine" id="cb8-28" data-line-number="28">    </a>
+<a class="sourceLine" id="cb8-29" data-line-number="29">    f &lt;-<span class="st"> </span>files_list<span class="op">$</span>x[i]</a>
+<a class="sourceLine" id="cb8-30" data-line-number="30">    </a>
+<a class="sourceLine" id="cb8-31" data-line-number="31">    <span class="kw">print</span>(f)</a>
+<a class="sourceLine" id="cb8-32" data-line-number="32">    df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">paste</span>(<span class="st">&quot;https://raw.githubusercontent.com/openZH/covid_19/master/fallzahlen_kanton_total_csv_v2/&quot;</span>, <span class="kw">gsub</span>(<span class="st">&#39;&quot;&#39;</span>, <span class="st">&#39;&#39;</span>, f), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb8-33" data-line-number="33">    <span class="kw">return</span>(df)</a>
+<a class="sourceLine" id="cb8-34" data-line-number="34">  }) <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>()</a>
+<a class="sourceLine" id="cb8-35" data-line-number="35">  <span class="co">#-------------- Test 2 - checking structure of the raw data --------------</span></a>
+<a class="sourceLine" id="cb8-36" data-line-number="36">  <span class="cf">if</span>(<span class="kw">is.null</span>(df_raw)){</a>
+<a class="sourceLine" id="cb8-37" data-line-number="37">    <span class="kw">stop</span>(<span class="st">&quot;The raw data is empty&quot;</span>)</a>
+<a class="sourceLine" id="cb8-38" data-line-number="38">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(df_raw) <span class="op">!=</span><span class="st"> </span><span class="dv">17</span>){</a>
+<a class="sourceLine" id="cb8-39" data-line-number="39">    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not aligned the expected number of columns&quot;</span>)</a>
+<a class="sourceLine" id="cb8-40" data-line-number="40">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">any</span>(<span class="op">!</span><span class="kw">names</span>(df_raw)  <span class="op">%in%</span><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;abbreviation_canton_and_fl&quot;</span>, <span class="st">&quot;ncumul_tested&quot;</span>, <span class="st">&quot;ncumul_conf&quot;</span>, <span class="st">&quot;new_hosp&quot;</span>,</a>
+<a class="sourceLine" id="cb8-41" data-line-number="41">                                    <span class="st">&quot;current_hosp&quot;</span>, <span class="st">&quot;current_icu&quot;</span>, <span class="st">&quot;current_vent&quot;</span>, <span class="st">&quot;ncumul_released&quot;</span>, <span class="st">&quot;ncumul_deceased&quot;</span>, <span class="st">&quot;source&quot;</span>,</a>
+<a class="sourceLine" id="cb8-42" data-line-number="42">                                    <span class="st">&quot;ncumul_confirmed_non_resident&quot;</span>, <span class="st">&quot;current_hosp_non_resident&quot;</span>, <span class="st">&quot;ncumul_ICF&quot;</span>, <span class="st">&quot;TotalPosTests1&quot;</span>, <span class="st">&quot;ninst_ICU_intub&quot;</span>))){</a>
+<a class="sourceLine" id="cb8-43" data-line-number="43">    <span class="kw">stop</span>(<span class="st">&quot;The columns names are not aligned the expected names&quot;</span>)</a>
+<a class="sourceLine" id="cb8-44" data-line-number="44">  }</a>
+<a class="sourceLine" id="cb8-45" data-line-number="45">  </a>
+<a class="sourceLine" id="cb8-46" data-line-number="46">  <span class="co">#-------------- Cleaning the data --------------</span></a>
+<a class="sourceLine" id="cb8-47" data-line-number="47">  <span class="kw">head</span>(df_raw)</a>
+<a class="sourceLine" id="cb8-48" data-line-number="48">  </a>
+<a class="sourceLine" id="cb8-49" data-line-number="49">  covid19swiss &lt;-<span class="st"> </span>df_raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-50" data-line-number="50"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">as.Date</span>(date),</a>
+<a class="sourceLine" id="cb8-51" data-line-number="51">                  <span class="dt">canton =</span> abbreviation_canton_and_fl) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-52" data-line-number="52"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(date, canton) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-53" data-line-number="53"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">summarise</span>(<span class="dt">total_tested =</span> <span class="kw">sum</span>(ncumul_tested, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_tested))),</a>
+<a class="sourceLine" id="cb8-54" data-line-number="54">                     <span class="dt">total_confirmed =</span> <span class="kw">sum</span>(ncumul_conf, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_tested))),</a>
+<a class="sourceLine" id="cb8-55" data-line-number="55">                     <span class="dt">new_hosp =</span> <span class="kw">sum</span>(new_hosp, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(new_hosp))),</a>
+<a class="sourceLine" id="cb8-56" data-line-number="56">                     <span class="dt">current_hosp =</span> <span class="kw">sum</span>(current_hosp, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(current_hosp))),</a>
+<a class="sourceLine" id="cb8-57" data-line-number="57">                     <span class="dt">current_icu =</span> <span class="kw">sum</span>(current_icu, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(current_icu))),</a>
+<a class="sourceLine" id="cb8-58" data-line-number="58">                     <span class="dt">current_vent =</span> <span class="kw">sum</span>(current_vent, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(current_vent))),</a>
+<a class="sourceLine" id="cb8-59" data-line-number="59">                     <span class="dt">total_recovered =</span> <span class="kw">sum</span>(ncumul_released, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_released))),</a>
+<a class="sourceLine" id="cb8-60" data-line-number="60">                     <span class="dt">total_death =</span> <span class="kw">sum</span>(ncumul_deceased, <span class="dt">na.rm =</span> <span class="kw">any</span>(<span class="op">!</span><span class="kw">is.na</span>(ncumul_deceased)))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-61" data-line-number="61"><span class="st">    </span>tidyr<span class="op">::</span><span class="kw">pivot_longer</span>(<span class="kw">c</span>(<span class="op">-</span>date, <span class="op">-</span><span class="st"> </span>canton),</a>
+<a class="sourceLine" id="cb8-62" data-line-number="62">                        <span class="dt">names_to =</span> <span class="st">&quot;data_type&quot;</span>,</a>
+<a class="sourceLine" id="cb8-63" data-line-number="63">                        <span class="dt">values_to =</span> <span class="st">&quot;value&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-64" data-line-number="64"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">left_join</span>(swiss_map, <span class="dt">by =</span> <span class="st">&quot;canton&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-65" data-line-number="65"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">location =</span> canton,</a>
+<a class="sourceLine" id="cb8-66" data-line-number="66">                  <span class="dt">location_type =</span> <span class="kw">ifelse</span>(canton <span class="op">==</span><span class="st"> &quot;FL&quot;</span>, <span class="st">&quot;Principality of Liechtenstein&quot;</span>, <span class="st">&quot;Canton of Switzerland&quot;</span>),</a>
+<a class="sourceLine" id="cb8-67" data-line-number="67">                  <span class="dt">location_code =</span> gn_a1_code,</a>
+<a class="sourceLine" id="cb8-68" data-line-number="68">                  <span class="dt">location_code_type =</span> <span class="st">&quot;gn_a1_code&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-69" data-line-number="69"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(date, location, location_type, location_code, location_code_type, data_type, value) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-70" data-line-number="70"><span class="st">    </span><span class="kw">as.data.frame</span>()</a>
+<a class="sourceLine" id="cb8-71" data-line-number="71">  <span class="kw">head</span>(covid19swiss)</a>
+<a class="sourceLine" id="cb8-72" data-line-number="72">  <span class="co">#-------------- Test 3 - checking the stracture of the new data --------------</span></a>
+<a class="sourceLine" id="cb8-73" data-line-number="73">  <span class="cf">if</span>(<span class="kw">ncol</span>(covid19swiss) <span class="op">!=</span><span class="st"> </span><span class="dv">7</span>){</a>
+<a class="sourceLine" id="cb8-74" data-line-number="74">    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not align with the expected one (7)&quot;</span>)</a>
+<a class="sourceLine" id="cb8-75" data-line-number="75">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(covid19swiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8200</span>) {</a>
+<a class="sourceLine" id="cb8-76" data-line-number="76">    <span class="kw">stop</span>(<span class="st">&quot;The number of rows is not align with the expected one&quot;</span>)</a>
+<a class="sourceLine" id="cb8-77" data-line-number="77">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">min</span>(covid19swiss<span class="op">$</span>date) <span class="op">!=</span><span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-02-25&quot;</span>)){</a>
+<a class="sourceLine" id="cb8-78" data-line-number="78">    <span class="kw">stop</span>(<span class="st">&quot;Stop, the starting date is not Feb 25&quot;</span>)</a>
+<a class="sourceLine" id="cb8-79" data-line-number="79">  }</a>
+<a class="sourceLine" id="cb8-80" data-line-number="80">  </a>
+<a class="sourceLine" id="cb8-81" data-line-number="81">  <span class="co">#-------------- Pulling the Github csv version--------------</span></a>
+<a class="sourceLine" id="cb8-82" data-line-number="82">  git_df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Covid19R/covid19swiss/master/csv/covid19swiss.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb8-83" data-line-number="83">  </a>
+<a class="sourceLine" id="cb8-84" data-line-number="84">  git_df<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(git_df<span class="op">$</span>date)</a>
+<a class="sourceLine" id="cb8-85" data-line-number="85">  </a>
+<a class="sourceLine" id="cb8-86" data-line-number="86">  </a>
+<a class="sourceLine" id="cb8-87" data-line-number="87">  <span class="co">#-------------- Test 4 - checking the stracture of the Github data --------------</span></a>
+<a class="sourceLine" id="cb8-88" data-line-number="88">  <span class="cf">if</span>(<span class="kw">ncol</span>(git_df) <span class="op">!=</span><span class="st"> </span><span class="dv">7</span>){</a>
+<a class="sourceLine" id="cb8-89" data-line-number="89">    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not align with the expected one (7)&quot;</span>)</a>
+<a class="sourceLine" id="cb8-90" data-line-number="90">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(git_df) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8200</span>) {</a>
+<a class="sourceLine" id="cb8-91" data-line-number="91">    <span class="kw">stop</span>(<span class="st">&quot;The number of rows is not align with the expected one&quot;</span>)</a>
+<a class="sourceLine" id="cb8-92" data-line-number="92">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">min</span>(git_df<span class="op">$</span>date) <span class="op">!=</span><span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-02-25&quot;</span>)){</a>
+<a class="sourceLine" id="cb8-93" data-line-number="93">    <span class="kw">stop</span>(<span class="st">&quot;Stop, the starting date is not Feb 25&quot;</span>)</a>
+<a class="sourceLine" id="cb8-94" data-line-number="94">  }</a>
+<a class="sourceLine" id="cb8-95" data-line-number="95">  </a>
+<a class="sourceLine" id="cb8-96" data-line-number="96">  <span class="cf">if</span>(<span class="kw">nrow</span>(covid19swiss) <span class="op">&gt;</span><span class="st"> </span><span class="kw">nrow</span>(git_df)){</a>
+<a class="sourceLine" id="cb8-97" data-line-number="97">    <span class="kw">print</span>(<span class="st">&quot;Updates available&quot;</span>)</a>
+<a class="sourceLine" id="cb8-98" data-line-number="98">    usethis<span class="op">::</span><span class="kw">use_data</span>(covid19swiss, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb8-99" data-line-number="99">    <span class="kw">write.csv</span>(covid19swiss, <span class="st">&quot;csv/covid19swiss.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb8-100" data-line-number="100">    <span class="kw">print</span>(<span class="st">&quot;The covid19swiss dataset was updated&quot;</span>)</a>
+<a class="sourceLine" id="cb8-101" data-line-number="101">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb8-102" data-line-number="102">    <span class="kw">print</span>(<span class="st">&quot;Updates are not available&quot;</span>)</a>
+<a class="sourceLine" id="cb8-103" data-line-number="103">  }</a>
+<a class="sourceLine" id="cb8-104" data-line-number="104">  </a>
+<a class="sourceLine" id="cb8-105" data-line-number="105">  <span class="kw">return</span>(<span class="kw">print</span>(<span class="st">&quot;Done...&quot;</span>))</a>
+<a class="sourceLine" id="cb8-106" data-line-number="106">}</a></code></pre></div>
+<p>This function is doing to following:</p>
+<ul>
+<li>Pulling a csv file with a list of the raw data files names</li>
+<li>Pulling the raw data</li>
+<li>Pulling the most recent data available on the Github (Dev) version of the package</li>
+<li>Comparing between the two datasets and testing if new data is available on the raw data</li>
+<li>If new data is available, refresh the Github version of the package</li>
+</ul>
+<p>The list below describes several scenarios that could cause a failure in the workflow of the function and the corresponding tests:</p>
+<ul>
+<li>This file list could potentially change whenever new data added or removed. In the case of covid19swiss dataset, we expect 27 files (26 files for Switzerland cantons and one for the Principality of Liechtenstein). The following code will test if the structure of the file aligns with our expectation:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">#-------------- Test 1 - checking structure of the csv files list --------------</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="cf">if</span>(<span class="kw">is.null</span>(files_list)){</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="kw">stop</span>(<span class="st">&quot;The files_list is NULL&quot;</span>)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">} <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">1</span>){</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="kw">stop</span>(<span class="st">&quot;The number of the files_list table is not valid&quot;</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">} <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(files_list) <span class="op">!=</span><span class="st"> </span><span class="dv">27</span>){</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">  <span class="kw">stop</span>(<span class="st">&quot;The number of files on the files_list table is not valid&quot;</span>)</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">}</a></code></pre></div>
+<ul>
+<li>When pulling data from an external resource that is not in our control, the function most likely to fail (or worse, build the data with the wrong fields) whenever the data is changing. Therefore, we will run the following tests to ensure that we are pulling the right data:
+<ul>
+<li>Check if the return object is empty</li>
+<li>Test if the number of columns is aligned our expectations (17)</li>
+<li>Check if the names of the columns match the expected names</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">#-------------- Test 2 - checking structure of the raw data --------------</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="cf">if</span>(<span class="kw">is.null</span>(df_raw)){</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="kw">stop</span>(<span class="st">&quot;The raw data is empty&quot;</span>)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">ncol</span>(df_raw) <span class="op">!=</span><span class="st"> </span><span class="dv">17</span>){</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not aligned the expected number of columns&quot;</span>)</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">any</span>(<span class="op">!</span><span class="kw">names</span>(df_raw)  <span class="op">%in%</span><span class="st">  </span><span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;abbreviation_canton_and_fl&quot;</span>, </a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">                                        <span class="st">&quot;ncumul_tested&quot;</span>, <span class="st">&quot;ncumul_conf&quot;</span>, <span class="st">&quot;new_hosp&quot;</span>,</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">                                        <span class="st">&quot;current_hosp&quot;</span>, <span class="st">&quot;current_icu&quot;</span>, <span class="st">&quot;current_vent&quot;</span>, </a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">                                        <span class="st">&quot;ncumul_released&quot;</span>, <span class="st">&quot;ncumul_deceased&quot;</span>, <span class="st">&quot;source&quot;</span>,</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">                                        <span class="st">&quot;ncumul_confirmed_non_resident&quot;</span>, <span class="st">&quot;current_hosp_non_resident&quot;</span>, </a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">                                        <span class="st">&quot;ncumul_ICF&quot;</span>, <span class="st">&quot;TotalPosTests1&quot;</span>, <span class="st">&quot;ninst_ICU_intub&quot;</span>))){</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="kw">stop</span>(<span class="st">&quot;The columns names are not aligned the expected names&quot;</span>)</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">  }</a></code></pre></div>
+<ul>
+<li>Last but not least, we want to test the structure of the data after cleaning and preprocessing the raw data with the following tests:
+<ul>
+<li>Number of columns</li>
+<li>Number of raws greater than some threshold</li>
+<li>Starting date in the data set aligned the expectation</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">#-------------- Test 3 - checking the stracture of the new data --------------</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="cf">if</span>(<span class="kw">ncol</span>(covid19swiss) <span class="op">!=</span><span class="st"> </span><span class="dv">7</span>){</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="kw">stop</span>(<span class="st">&quot;The number of columns is not align with the expected one (7)&quot;</span>)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">nrow</span>(covid19swiss) <span class="op">&lt;</span><span class="st"> </span><span class="dv">8200</span>) {</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">    <span class="kw">stop</span>(<span class="st">&quot;The number of rows is not align with the expected one&quot;</span>)</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  } <span class="cf">else</span> <span class="cf">if</span>(<span class="kw">min</span>(covid19swiss<span class="op">$</span>date) <span class="op">!=</span><span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-02-25&quot;</span>)){</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="kw">stop</span>(<span class="st">&quot;Stop, the starting date is not Feb 25&quot;</span>)</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">  }</a></code></pre></div>
+</div>
+<div id="setting-unit-testing-with-the-testthat-package" class="section level2">
+<h2><span class="header-section-number">6.3</span> Setting unit testing with the testthat package</h2>
+<p>The second type of unit testing conducts on the package level. It enables to test a wider range of the package functionality. In R, the most common approach for creating such type of unit testing is with the testthat package. Using this package allows you to set multiple tests that will execute whenever running the build check (R CMD check). This ensures that you will identify problems before submitting the package to CRAN (assuming you build good tests!).</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_testthat</span>()</a></code></pre></div>
 
+</div>
 </div>
             </section>
 

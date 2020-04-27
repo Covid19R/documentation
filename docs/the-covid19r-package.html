@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 The Covid19R Package | The Covid19R Project Documentation</title>
   <meta name="description" content="Chapter 2 The Covid19R Package | The Covid19R Project Documentation" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 The Covid19R Package | The Covid19R Project Documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
 
 
-<meta name="date" content="2020-04-20" />
+<meta name="date" content="2020-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -219,6 +219,9 @@ spatial_extent
 has_geospatial_info
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+get_info_passing
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 refresh_status
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -259,10 +262,13 @@ country
 FALSE
 </td>
 <td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-03
+2020-04-25
 </td>
 </tr>
 <tr>
@@ -288,7 +294,7 @@ Open Source data from the New York Times on distribution of confirmed Covid-19 c
 cases_total, deaths_total
 </td>
 <td style="text-align:left;">
-county, state
+state
 </td>
 <td style="text-align:left;">
 country
@@ -297,10 +303,13 @@ country
 FALSE
 </td>
 <td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-03
+2020-04-25
 </td>
 </tr>
 <tr>
@@ -326,19 +335,63 @@ Open Source data from opencovid19-fr on distribution of confirmed Covid-19 cases
 confirmed, dead, icu, hospitalized, recovered, discovered
 </td>
 <td style="text-align:left;">
-NA
+county, region, country, overseas collectivity
 </td>
 <td style="text-align:left;">
-NA
+country
 </td>
 <td style="text-align:left;">
 FALSE
 </td>
 <td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-04
+2020-04-26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CanadaC19_cases
+</td>
+<td style="text-align:left;">
+CanadaC19
+</td>
+<td style="text-align:left;">
+refresh_CanadaC19_cases
+</td>
+<td style="text-align:left;">
+Open Source data from multiple public reporting data throughout Canada. For more, see <a href="https://github.com/ishaberry/Covid19Canada" class="uri">https://github.com/ishaberry/Covid19Canada</a>.
+</td>
+<td style="text-align:left;">
+<a href="https://raw.githubusercontent.com/ishaberry/Covid19Canada/master/cases.csv" class="uri">https://raw.githubusercontent.com/ishaberry/Covid19Canada/master/cases.csv</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/debusklaneml/CanadaC19/blob/master/LICENSE" class="uri">https://github.com/debusklaneml/CanadaC19/blob/master/LICENSE</a>
+</td>
+<td style="text-align:left;">
+cases_new
+</td>
+<td style="text-align:left;">
+state
+</td>
+<td style="text-align:left;">
+state
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-04-26
 </td>
 </tr>
 </tbody>
@@ -381,6 +434,14 @@ covid19nytimes_counties
 Open Source data from the New York Times on distribution of confirmed Covid-19 cases and deaths in the US by County. For more, see <a href="https://www.nytimes.com/article/coronavirus-county-data-us.html" class="uri">https://www.nytimes.com/article/coronavirus-county-data-us.html</a> or the readme at <a href="https://github.com/nytimes/covid-19-data" class="uri">https://github.com/nytimes/covid-19-data</a>.
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+CanadaC19_cases
+</td>
+<td style="text-align:left;">
+Open Source data from multiple public reporting data throughout Canada. For more, see <a href="https://github.com/ishaberry/Covid19Canada" class="uri">https://github.com/ishaberry/Covid19Canada</a>.
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -408,10 +469,10 @@ location
 location_type
 </th>
 <th style="text-align:left;">
-location_standardized
+location_code
 </th>
 <th style="text-align:left;">
-location_standardized_type
+location_code_type
 </th>
 <th style="text-align:left;">
 data_type
@@ -424,16 +485,16 @@ value
 <tbody>
 <tr>
 <td style="text-align:left;">
-2020-01-21
+2020-04-25
 </td>
 <td style="text-align:left;">
-Washington
+Alabama
 </td>
 <td style="text-align:left;">
 state
 </td>
 <td style="text-align:left;">
-53
+01
 </td>
 <td style="text-align:left;">
 fips_code
@@ -442,21 +503,21 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-1
+6213
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-01-21
+2020-04-25
 </td>
 <td style="text-align:left;">
-Washington
+Alabama
 </td>
 <td style="text-align:left;">
 state
 </td>
 <td style="text-align:left;">
-53
+01
 </td>
 <td style="text-align:left;">
 fips_code
@@ -465,21 +526,21 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-0
+213
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-01-22
+2020-04-25
 </td>
 <td style="text-align:left;">
-Washington
+Alaska
 </td>
 <td style="text-align:left;">
 state
 </td>
 <td style="text-align:left;">
-53
+02
 </td>
 <td style="text-align:left;">
 fips_code
@@ -488,21 +549,21 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-1
+337
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-01-22
+2020-04-25
 </td>
 <td style="text-align:left;">
-Washington
+Alaska
 </td>
 <td style="text-align:left;">
 state
 </td>
 <td style="text-align:left;">
-53
+02
 </td>
 <td style="text-align:left;">
 fips_code
@@ -511,21 +572,21 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-01-23
+2020-04-25
 </td>
 <td style="text-align:left;">
-Washington
+Arizona
 </td>
 <td style="text-align:left;">
 state
 </td>
 <td style="text-align:left;">
-53
+04
 </td>
 <td style="text-align:left;">
 fips_code
@@ -534,21 +595,21 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-1
+6280
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-01-23
+2020-04-25
 </td>
 <td style="text-align:left;">
-Washington
+Arizona
 </td>
 <td style="text-align:left;">
 state
 </td>
 <td style="text-align:left;">
-53
+04
 </td>
 <td style="text-align:left;">
 fips_code
@@ -557,7 +618,7 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-0
+275
 </td>
 </tr>
 </tbody>
@@ -645,9 +706,6 @@ location_code_type
 <th style="text-align:left;">
 description
 </th>
-<th style="text-align:left;">
-URL
-</th>
 </tr>
 </thead>
 <tbody>
@@ -658,9 +716,6 @@ fips_code
 <td style="text-align:left;">
 The federal code in US designating regions of governance
 </td>
-<td style="text-align:left;">
-<a href="https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt" class="uri">https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt</a>
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -669,8 +724,13 @@ iso_3166
 <td style="text-align:left;">
 ISO 3166 is a standard published by the International Organization for Standardization (ISO) that defines codes for the names of countries, dependent territories, special areas of geographical interest, and their principal subdivisions (e.g., provinces or states).
 </td>
+</tr>
+<tr>
 <td style="text-align:left;">
-<a href="https://en.wikipedia.org/wiki/ISO_3166" class="uri">https://en.wikipedia.org/wiki/ISO_3166</a>
+iso_3166_2
+</td>
+<td style="text-align:left;">
+ISO 3166-2 is part of the ISO 3166 standard published by the International Organization for Standardization (ISO), and defines codes for identifying the principal subdivisions (e.g., provinces or states) of all countries coded in ISO 3166-1.
 </td>
 </tr>
 </tbody>
