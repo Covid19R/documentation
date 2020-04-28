@@ -1,3 +1,44 @@
 # Standardized Package Functions
 
-Here is a review of existing methods.
+```{r func_preamble, include = FALSE}
+`%>%` <- magrittr::`%>%`
+```
+
+All packages that are part of the Covid19R project have two functions at their core. These functions are necessary in order to hook the package up to the Covid19R [data aggregator](https://github.com/Covid19R/covid19R_data) - and/or it could mean that for users interested in individual packages instead of pulling data from the [covid19R](https://github.com/Covid19R/covid19R) package, they'll know their way around your data package quickly!
+
+## Getting Information
+
+The `get_info_*()` function returns all of the salient info about each dataset in a package. It ends in the name of the package, e.g., `get_info_covid19nytimes()` for the covid19nytimes package. Each package only has one `get_info_*()` function. It returns the following fields:
+
+`data_set_name` - The name of the data set.   
+`package_name` - The name of the package the data set lives in.  
+`function_to_get_data` - The function in the package that is used to get the data.  
+`data_details` - A detailed description of the data set.  
+`data_url` - A URL for where the data comes from.  
+`license_url` - A URL for the license for usage of the data. PLEASE READ THIS.  
+`data_types` - What kinds of data is here? cases, deaths, hospital beds, etc.  
+`location_types` - What types of locations are represented in the data, e.g., States, Countries, etc.  
+`spatial_extent` - How large of an area does the data set cover? A single country? A continent? The globe?  
+`has_geospatial_info` - Does the data set have explicit geospatial information (e.g., latitude and longtitude) such that it can be easily converted into an `sf` object or otherwise?
+
+
+
+For example
+```{r}
+covid19us::get_info_covid19us() %>% 
+  knitr::kable(format = "html") %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive"))
+```
+
+## Obtaining fresh data
+
+Each data set has its own `refresh_*()` function. It can either be `refresh_PACKAGENAME()` if the data package only supplies one data set. For example `refresh_covid19france()`. Or, if there are multiple data sets in a package, `refresh_PACKAGENAME_MOREINFO()` where `PACKAGENAME_MOREINFO` is the full name of a data set. For example `refresh_covid19nytimes_states()` and `refresh_covid19nytimes_counties()` return two different data sets from the covid19nytimes data package.
+
+```{r}
+covid19nytimes::refresh_covid19nytimes_states() %>%
+  head() %>%
+  knitr::kable("html") %>%
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","condensed", "responsive"))
+```
