@@ -20,20 +20,20 @@ Below, we list many of the current entries in our standardized vocabulary. If yo
 ## Current Location Types
 
 ```{r loc_type, echo = FALSE}
-read_csv("https://github.com/Covid19R/covid19R_data/raw/master/controlled_vocabularies/location_type.csv", col_type = "cc") %>% 
+read_csv("https://github.com/Covid19R/covid19Rdata/raw/master/controlled_vocabularies/location_type.csv", col_type = "cc") %>% 
   kable(format = "html") 
 ```
 
 ## Current Location Code Types
 
 ```{r loc_std_type, echo = FALSE, warning = FALSE}
-read_csv("https://github.com/Covid19R/covid19R_data/raw/master/controlled_vocabularies/location_code_type.csv", col_type = "ccc") %>% 
+read_csv("https://github.com/Covid19R/covid19Rdata/raw/master/controlled_vocabularies/location_code_type.csv", col_type = "ccc") %>% 
   kable(format = "html") 
 ```
 
 ## Current Data Types
 
 ```{r dat_type, echo = FALSE}
-read_csv("https://github.com/Covid19R/covid19R_data/raw/master/controlled_vocabularies/data_type.csv", col_type = "cc") %>% 
+read_csv("https://github.com/Covid19R/covid19Rdata/raw/master/controlled_vocabularies/data_type.csv", col_type = "cc") %>% 
   kable(format = "html") 
 ```

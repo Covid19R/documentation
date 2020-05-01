@@ -4,7 +4,7 @@
 `%>%` <- magrittr::`%>%`
 ```
 
-All packages that are part of the Covid19R project have two functions at their core. These functions are necessary in order to hook the package up to the Covid19R [data aggregator](https://github.com/Covid19R/covid19R_data) - and/or it could mean that for users interested in individual packages instead of pulling data from the [covid19R](https://github.com/Covid19R/covid19R) package, they'll know their way around your data package quickly!
+All packages that are part of the Covid19R project have two functions at their core. These functions are necessary in order to hook the package up to the Covid19R [data aggregator](https://github.com/Covid19R/covid19Rdata) - and/or it could mean that for users interested in individual packages instead of pulling data from the [covid19R](https://github.com/Covid19R/covid19R) package, they'll know their way around your data package quickly!
 
 ## Getting Information
 
