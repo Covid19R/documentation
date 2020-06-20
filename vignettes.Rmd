@@ -1,3 +1,11 @@
 # Guidance for Writing Package Vignettes
 
-Here is a review of existing methods.
+There are a lot of directions you can take when making a great vignette to show off your package. In general, your vignette (especially when seen in your pkgdown site) will provide a user their most direct guide to your package. 
+
+So, what should you include for a good vignette for the Covid19R project? We have a few suggestions - but you should by all means harness your own creativity here.
+
+1. **Show what is in your package and what can be done** - What is the data in your package? Provide a simple vignette that shows what data is in your vignette along with a simple use case of how it can be used. This should extend beyond your README, which shows what is there, to show some capabilities. For example, see the [coronavirus package vignette](https://covid19r.github.io/coronavirus/articles/intro_coronavirus_dataset.html)
+
+2. **Give an example of something someone might want to do** - What is a task someone might use your package for that goes beyond the simple? Are there unique visuzliations? Other types of data to merge with? What is something someone might want to do as a first stab at using your data. See the [covid19nytimes vignette remaking the NY Times bubblemap](https://covid19r.github.io/covid19nytimes/articles/ny-times-bubble-map.html)
+
+3. **Show something unique about your data set** - Are there really interesting things you can do to stimulate your audience to see new things in the data? Can you whet their appetite and creativity? See, for example, this comparison of different data types in the [covid19mobility vignette](https://covid19r.github.io/covid19mobility/articles/google_work_v_play.html) to show a unique way to see the data.
