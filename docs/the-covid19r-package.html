@@ -24,7 +24,7 @@
 <meta name="author" content="Rami Krispin, Amanda Dobbyn, Jarrett Byrnes" />
 
 
-<meta name="date" content="2020-04-30" />
+<meta name="date" content="2020-06-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,7 @@ get_info_passing
 refresh_status
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-last_update
+last_refresh_update
 </th>
 </tr>
 </thead>
@@ -268,7 +268,7 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-26
+2020-06-20 16:13:11
 </td>
 </tr>
 <tr>
@@ -309,7 +309,7 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-26
+2020-06-20 16:13:17
 </td>
 </tr>
 <tr>
@@ -350,7 +350,7 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-27
+2020-06-20 16:13:36
 </td>
 </tr>
 <tr>
@@ -391,7 +391,7 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-26
+2020-06-20 16:13:39
 </td>
 </tr>
 <tr>
@@ -414,7 +414,7 @@ Open Source data from COVID Tracking Project on the distribution of Covid-19 cas
 <a href="https://github.com/aedobbyn/covid19us/blob/master/LICENSE.md" class="uri">https://github.com/aedobbyn/covid19us/blob/master/LICENSE.md</a>
 </td>
 <td style="text-align:left;">
-positive, negative, pending, hospitalized_currently, hospitalized_cumulative, in_icu_currently, in_icu_cumulative, on_ventilator_currently, on_ventilator_cumulative, recovered, death, hospitalized, total, total_test_results, death_increase, hospitalized_increase, negative_increase, positive_increase, total_test_results_increase
+positive, negative, pending, hospitalized_currently, hospitalized_cumulative, in_icu_currently, in_icu_cumulative, on_ventilator_currently, on_ventilator_cumulative, recovered, death, hospitalized, total_tests_viral, positive_tests_viral, negative_tests_viral, positive_cases_viral, positive_increase, negative_increase, total, total_test_results, total_test_results_increase, death_increase, hospitalized_increase, negative_regular_score, negative_score, positive_score
 </td>
 <td style="text-align:left;">
 state
@@ -432,7 +432,336 @@ TRUE
 Passed
 </td>
 <td style="text-align:left;">
-2020-04-27
+2020-06-20 16:13:45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VirginiaC19
+</td>
+<td style="text-align:left;">
+VirginiaC19
+</td>
+<td style="text-align:left;">
+refresh_VirginiaC19
+</td>
+<td style="text-align:left;">
+Open Source data from Virginia Department of Health. For more information, see <a href="https://www.vdh.virginia.gov/coronavirus/" class="uri">https://www.vdh.virginia.gov/coronavirus/</a>.
+</td>
+<td style="text-align:left;">
+<a href="https://www.vdh.virginia.gov/content/uploads/sites/182/2020/03/VDH-COVID-19-PublicUseDataset-Cases.csv" class="uri">https://www.vdh.virginia.gov/content/uploads/sites/182/2020/03/VDH-COVID-19-PublicUseDataset-Cases.csv</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/debusklaneml/VirginiaC19/blob/master/LICENSE" class="uri">https://github.com/debusklaneml/VirginiaC19/blob/master/LICENSE</a>
+</td>
+<td style="text-align:left;">
+cases_new,deaths_new,hosp_new
+</td>
+<td style="text-align:left;">
+county
+</td>
+<td style="text-align:left;">
+state
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:13:45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19tunisia
+</td>
+<td style="text-align:left;">
+covid19tunisia
+</td>
+<td style="text-align:left;">
+refresh_covid19tunisia
+</td>
+<td style="text-align:left;">
+Open Source data on distribution of confirmed Covid-19 cases, recovered ones and deaths in Tunisia.
+For more, <a href="https://github.com/MounaBelaid/covid19datatunisia" class="uri">https://github.com/MounaBelaid/covid19datatunisia</a>
+</td>
+<td style="text-align:left;">
+<a href="https://raw.githubusercontent.com/MounaBelaid/covid19datatunisia/master/dist/data.csv" class="uri">https://raw.githubusercontent.com/MounaBelaid/covid19datatunisia/master/dist/data.csv</a>
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/MounaBelaid/covid19datatunisia/blob/master/LICENSE" class="uri">https://github.com/MounaBelaid/covid19datatunisia/blob/master/LICENSE</a>
+</td>
+<td style="text-align:left;">
+cases_new, deaths_new, recovered_new
+</td>
+<td style="text-align:left;">
+state
+</td>
+<td style="text-align:left;">
+country
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:13:45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_apple_country
+</td>
+<td style="text-align:left;">
+covid19mobility
+</td>
+<td style="text-align:left;">
+refresh_covid19mobility_apple_country
+</td>
+<td style="text-align:left;">
+Data reflects relative volume of directions requests compared to a baseline volume on January 13th, 2020 for multiple transportation modes aggregated at the country level.
+</td>
+<td style="text-align:left;">
+<a href="https://www.apple.com/covid19/mobility" class="uri">https://www.apple.com/covid19/mobility</a>
+</td>
+<td style="text-align:left;">
+<a href="https://www.apple.com/covid19/mobility" class="uri">https://www.apple.com/covid19/mobility</a>
+</td>
+<td style="text-align:left;">
+driving, walking, transit
+</td>
+<td style="text-align:left;">
+country
+</td>
+<td style="text-align:left;">
+global
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:13:47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_apple_subregion
+</td>
+<td style="text-align:left;">
+covid19mobility
+</td>
+<td style="text-align:left;">
+refresh_covid19mobility_apple_subregion
+</td>
+<td style="text-align:left;">
+Data reflects relative volume of directions requests compared to a baseline volume on January 13th, 2020 for multiple transportation modes aggregated at the subregion (state) level.
+</td>
+<td style="text-align:left;">
+<a href="https://www.apple.com/covid19/mobility" class="uri">https://www.apple.com/covid19/mobility</a>
+</td>
+<td style="text-align:left;">
+<a href="https://www.apple.com/covid19/mobility" class="uri">https://www.apple.com/covid19/mobility</a>
+</td>
+<td style="text-align:left;">
+driving, walking, transit
+</td>
+<td style="text-align:left;">
+state
+</td>
+<td style="text-align:left;">
+global
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:13:53
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_apple_city
+</td>
+<td style="text-align:left;">
+covid19mobility
+</td>
+<td style="text-align:left;">
+refresh_covid19mobility_apple_city
+</td>
+<td style="text-align:left;">
+Data reflects relative volume of directions requests compared to a baseline volume on January 13th, 2020 for multiple transportation modes aggregated at the city level.
+</td>
+<td style="text-align:left;">
+<a href="https://www.apple.com/covid19/mobility" class="uri">https://www.apple.com/covid19/mobility</a>
+</td>
+<td style="text-align:left;">
+<a href="https://www.apple.com/covid19/mobility" class="uri">https://www.apple.com/covid19/mobility</a>
+</td>
+<td style="text-align:left;">
+driving, walking, transit
+</td>
+<td style="text-align:left;">
+city
+</td>
+<td style="text-align:left;">
+global
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:14:00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_google_country
+</td>
+<td style="text-align:left;">
+covid19mobility
+</td>
+<td style="text-align:left;">
+refresh_covid19mobility_google_country
+</td>
+<td style="text-align:left;">
+Changes for each day are compared to a baseline value for that day of the week as compared to the 5-week period Jan 3-Feb 6, 2020 for visits to places falling in to certain categories.
+</td>
+<td style="text-align:left;">
+<a href="https://www.google.com/covid19/mobility/" class="uri">https://www.google.com/covid19/mobility/</a>
+</td>
+<td style="text-align:left;">
+<a href="https://www.google.com/covid19/mobility/" class="uri">https://www.google.com/covid19/mobility/</a>
+</td>
+<td style="text-align:left;">
+retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline
+</td>
+<td style="text-align:left;">
+country
+</td>
+<td style="text-align:left;">
+global
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:14:08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_google_subregions
+</td>
+<td style="text-align:left;">
+covid19mobility
+</td>
+<td style="text-align:left;">
+refresh_covid19mobility_google_subregions
+</td>
+<td style="text-align:left;">
+Changes for each day are compared to a baseline value for that day of the week as compared to the 5-week period Jan 3-Feb 6, 2020 for visits to places falling in to certain categories. Data is aggregated at the state or subdivision level.
+</td>
+<td style="text-align:left;">
+<a href="https://www.google.com/covid19/mobility/" class="uri">https://www.google.com/covid19/mobility/</a>
+</td>
+<td style="text-align:left;">
+<a href="https://www.google.com/covid19/mobility/" class="uri">https://www.google.com/covid19/mobility/</a>
+</td>
+<td style="text-align:left;">
+retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline
+</td>
+<td style="text-align:left;">
+state
+</td>
+<td style="text-align:left;">
+global
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:14:39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_google_us_counties
+</td>
+<td style="text-align:left;">
+covid19mobility
+</td>
+<td style="text-align:left;">
+refresh_covid19mobility_google_us_counties
+</td>
+<td style="text-align:left;">
+Changes for each day are compared to a baseline value for that day of the week as compared to the 5-week period Jan 3-Feb 6, 2020 for visits to places falling in to certain categories. Data is aggregated at the county level for the USA only.
+</td>
+<td style="text-align:left;">
+<a href="https://www.google.com/covid19/mobility/" class="uri">https://www.google.com/covid19/mobility/</a>
+</td>
+<td style="text-align:left;">
+<a href="https://www.google.com/covid19/mobility/" class="uri">https://www.google.com/covid19/mobility/</a>
+</td>
+<td style="text-align:left;">
+retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline
+</td>
+<td style="text-align:left;">
+county
+</td>
+<td style="text-align:left;">
+country
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+Passed
+</td>
+<td style="text-align:left;">
+2020-06-20 16:15:11
 </td>
 </tr>
 </tbody>
@@ -491,6 +820,31 @@ covid19us
 Open Source data from COVID Tracking Project on the distribution of Covid-19 cases and deaths in the US. For more, see <a href="https://github.com/opencovid19-fr/data" class="uri">https://github.com/opencovid19-fr/data</a>.
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+covid19tunisia
+</td>
+<td style="text-align:left;">
+Open Source data on distribution of confirmed Covid-19 cases, recovered ones and deaths in Tunisia.
+For more, <a href="https://github.com/MounaBelaid/covid19datatunisia" class="uri">https://github.com/MounaBelaid/covid19datatunisia</a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_apple_subregion
+</td>
+<td style="text-align:left;">
+Data reflects relative volume of directions requests compared to a baseline volume on January 13th, 2020 for multiple transportation modes aggregated at the subregion (state) level.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid19mobility_google_subregions
+</td>
+<td style="text-align:left;">
+Changes for each day are compared to a baseline value for that day of the week as compared to the 5-week period Jan 3-Feb 6, 2020 for visits to places falling in to certain categories. Data is aggregated at the state or subdivision level.
+</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -534,7 +888,7 @@ value
 <tbody>
 <tr>
 <td style="text-align:left;">
-2020-04-26
+2020-06-17
 </td>
 <td style="text-align:left;">
 Alabama
@@ -552,12 +906,12 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-6421
+27312
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-26
+2020-06-17
 </td>
 <td style="text-align:left;">
 Alabama
@@ -575,12 +929,12 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-219
+790
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-26
+2020-06-17
 </td>
 <td style="text-align:left;">
 Alaska
@@ -598,12 +952,12 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-339
+776
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-26
+2020-06-17
 </td>
 <td style="text-align:left;">
 Alaska
@@ -621,12 +975,12 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-7
+10
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-26
+2020-06-17
 </td>
 <td style="text-align:left;">
 Arizona
@@ -644,12 +998,12 @@ fips_code
 cases_total
 </td>
 <td style="text-align:right;">
-6526
+41159
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-2020-04-26
+2020-06-17
 </td>
 <td style="text-align:left;">
 Arizona
@@ -667,7 +1021,7 @@ fips_code
 deaths_total
 </td>
 <td style="text-align:right;">
-277
+1252
 </td>
 </tr>
 </tbody>
@@ -794,6 +1148,17 @@ ISO 3166-2 is part of the ISO 3166 standard published by the International Organ
 <a href="https://en.wikipedia.org/wiki/ISO_3166-2" class="uri">https://en.wikipedia.org/wiki/ISO_3166-2</a>
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+un_locode
+</td>
+<td style="text-align:left;">
+The United Nations Code for Trade and Transport Locations. Covers cities, airports, train stations and other smaller areas of transportation significance.
+</td>
+<td style="text-align:left;">
+<a href="https://www.unece.org/cefact/locode/welcome.html" class="uri">https://www.unece.org/cefact/locode/welcome.html</a>
+</td>
+</tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">get_covid19_controlled_vocab</span>(<span class="st">&quot;data_type&quot;</span>) <span class="op">%&gt;%</span></a>
@@ -898,6 +1263,78 @@ vent_current
 </td>
 <td style="text-align:left;">
 number of hospitalized patients requiring ventilation as of the current date
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+driving_req_rel_volume
+</td>
+<td style="text-align:left;">
+relative volume of driving direction requests from a platform such as Apple Maps
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+walking_req_rel_volume
+</td>
+<td style="text-align:left;">
+relative volume of walking direction requests from a platform such as Apple Maps
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+transit_req_rel_volume
+</td>
+<td style="text-align:left;">
+relative volume of transit direction requests from a platform such as Apple Maps
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retail_and_recreation_perc_ch
+</td>
+<td style="text-align:left;">
+percent change in visits to retail and recreation within a given area from a geotracking source such as Google
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+grocery_and_pharmacy_perc_ch
+</td>
+<td style="text-align:left;">
+percent change in visits to groceries and pharmacies within a given area from a geotracking source such as Google
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+parks_perc_ch
+</td>
+<td style="text-align:left;">
+percent change in visits to parks within a given area from a geotracking source such as Google
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+transit_stations_perc_ch
+</td>
+<td style="text-align:left;">
+percent change in visits to transit stations within a given area from a geotracking source such as Google
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+workplaces_perc_ch
+</td>
+<td style="text-align:left;">
+percent change in visits to places of work within a given area from a geotracking source such as Google
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+residential_perc_ch
+</td>
+<td style="text-align:left;">
+percent change in visits to residental locations within a given area from a geotracking source such as Google
 </td>
 </tr>
 </tbody>

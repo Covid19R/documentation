@@ -1,4 +1,23 @@
 # Packages Part of the Project
-- [covid19R](https://github.com/Covid19R/covid19R) -  Our main package  
-- [covid19nytimes](https://github.com/Covid19R/covid19nytimes) - Accessing the NY Times State and County data 
-- [covid19france](https://github.com/Covid19R/covid19france) - Providing data from [opencovid19-fr](https://github.com/opencovid19-fr/data)
+```{r echo = FALSE, warning=FALSE, message=FALSE, results='asis'}
+library(covid19R)
+library(knitr)
+library(dplyr)
+pkgs <- get_covid19_data_info() %>%
+  pull(package_name) %>%
+  unique() %>% sort() %>%
+  c("covid19R", .)
+
+pkgdat <- data.frame(Package = pkgs,
+                     Description = sapply(pkgs, 
+                                          packageDescription, 
+                                          fields = "Description"),
+                     URL = sapply(pkgs, 
+                                  packageDescription, 
+                                  fields = "URL")) %>%
+  rowwise() %>%
+  summarise(text = glue::glue("- [{Package}]({URL}) - {Description}  \n")) %>%
+  pull(text)
+
+print(pkgdat)
+```
